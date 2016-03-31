@@ -3,9 +3,10 @@ var React = require('react-native');
 var {
   View,
   Text,
+  Image,
   StyleSheet,
   TextInput,
-  TouchableHighlight,
+  TouchableHighlight
 } = React;
 
 
@@ -51,14 +52,50 @@ var styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'center'
   },
+  imageContainer: {
+    flex: 1,
+    alignItems: 'stretch',
+    justifyContent: 'center'
+
+  },
+  image: {
+    flex: 1,
+    alignItems: 'stretch'
+
+  }
 })
 
+
 class Main extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      isLoading: false,
+      error: false
+    }
+  }
+
+
+  goToDashboard(){
+    this.props.navigator.push({
+      component: Dashboard,
+      title: 'Dashboard'
+    })
+  }
+
   render(){
     return (
-    <View style={styles.mainContainer}>
-      <Text style={styles.title}> Hello World </Text>
-    </View>
+      <View style={styles.mainContainer}>
+        <Text style={styles.title}> Welcome to SoHoDuck! </Text>
+
+        <TouchableHighlight
+        style={styles.button}
+        onPress={this.goToDashboard.bind(this)}
+        underlayColor="white">
+          <Text style={styles.buttonText}> START QUACKING!</Text>
+        </TouchableHighlight>
+
+      </View>
     )
   }
 }
