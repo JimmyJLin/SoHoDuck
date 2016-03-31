@@ -1,7 +1,7 @@
-var React = require('react-native');
-var Main = require('./App/Components/Main')
+const React = require('react-native');
+const Main = require('./App/Components/Main');
 
-var {
+const {
   AppRegistry,
   Component,
   StyleSheet,

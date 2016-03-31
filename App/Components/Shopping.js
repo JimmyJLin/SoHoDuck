@@ -1,17 +1,17 @@
 const React = require('react-native');
-const Dashboard = require('./Dashboard')
 
-const {
-  View,
+var {
   Text,
+  View,
+  NavigatorIOS,
   Image,
+  ScrollView,
   StyleSheet,
-  TextInput,
   TouchableHighlight
 } = React;
 
 
-const styles = StyleSheet.create({
+var styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     padding: 30,
@@ -53,51 +53,22 @@ const styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'center'
   },
-  imageContainer: {
-    flex: 1,
-    alignItems: 'stretch',
-    justifyContent: 'center'
-
-  },
-  image: {
-    flex: 1,
-    alignItems: 'stretch'
-
-  }
 })
 
-
-class Main extends React.Component{
-  constructor(props){
-    super(props);
-    this.state = {
-      isLoading: false,
-      error: false
-    }
-  }
-
-  goToDashboard(){
-    this.props.navigator.push({
-      component: Dashboard,
-      title: 'Dashboard'
-    })
-  }
-
+class Shopping extends React.Component{
   render(){
     return (
       <View style={styles.mainContainer}>
-        <Text style={styles.title}> Welcome to SoHoDuck! </Text>
+        <View style={{flex: .8}}>
+        <Text style={styles.title}>Main</Text>
+        </View>
 
-        <TouchableHighlight
-        style={styles.button}
-        onPress={this.goToDashboard.bind(this)}
-        underlayColor="white">
-          <Text style={styles.buttonText}> START QUACKING!</Text>
-        </TouchableHighlight>
-
+        <View style={{flex: .2}}>
+        <Text style={styles.title}>Footer</Text>
+        </View>
       </View>
     )
   }
 }
 
-module.exports = Main;
+module.exports = Shopping;
