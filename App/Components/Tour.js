@@ -1,8 +1,10 @@
 const React = require('react-native');
+const Geolocation = require('./Geolocation');
 
-var {
+const {
   Text,
   View,
+  MapView,
   NavigatorIOS,
   Image,
   ScrollView,
@@ -10,8 +12,14 @@ var {
   TouchableHighlight
 } = React;
 
+const regionText = {
+  latitude: '0',
+  longitude: '0',
+  latitudeDelta: '0',
+  longitudeDelta: '0',
+}
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     padding: 30,
@@ -53,14 +61,27 @@ var styles = StyleSheet.create({
     alignSelf: 'stretch',
     justifyContent: 'center'
   },
+  map: {
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
 })
 
 class Tour extends React.Component{
+
   render(){
     return (
       <View style={styles.mainContainer}>
         <View style={{flex: .8}}>
         <Text style={styles.title}>Main</Text>
+        <MapView
+          style={styles.map}
+          showsUserLocation={true}
+          followUserLocation={true}
+        />
         </View>
 
         <View style={{flex: .2}}>
