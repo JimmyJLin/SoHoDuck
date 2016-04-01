@@ -1,5 +1,5 @@
 const React = require('react-native');
-const Geolocation = require('./Geolocation');
+const Footer = require('./Footer');
 
 const {
   Text,
@@ -9,6 +9,9 @@ const {
   Image,
   ScrollView,
   StyleSheet,
+  PropTypes,
+  TabBarIOS,
+  TouchableOpacity,
   TouchableHighlight
 } = React;
 
@@ -62,21 +65,29 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   map: {
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
+    height: 200,
+    margin: 10,
+    borderWidth: 1,
+    borderColor: '#000000',
   },
 })
 
 class Tour extends React.Component{
 
+  constructor(props){
+    super(props);
+    this.state = {
+      isFirstLoad: true,
+      mapRegion: undefined,
+      mapRegionInput: undefined,
+      annotation: [],
+    }
+  }
+
   render(){
     return (
       <View style={styles.mainContainer}>
         <View style={{flex: .8}}>
-        <Text style={styles.title}>Main</Text>
         <MapView
           style={styles.map}
           showsUserLocation={true}
@@ -86,6 +97,7 @@ class Tour extends React.Component{
 
         <View style={{flex: .2}}>
         <Text style={styles.title}>Footer</Text>
+        <Footer/>
         </View>
       </View>
     )
