@@ -25,7 +25,6 @@ const regionText = {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    padding: 30,
     marginTop: 65,
     flexDirection: 'column',
     justifyContent: 'center',
@@ -66,7 +65,6 @@ const styles = StyleSheet.create({
   },
   map: {
     height: 200,
-    margin: 10,
     borderWidth: 1,
     borderColor: '#000000',
   },

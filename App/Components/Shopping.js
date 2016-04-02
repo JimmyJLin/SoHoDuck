@@ -14,7 +14,6 @@ var {
 var styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    padding: 30,
     marginTop: 65,
     flexDirection: 'column',
     justifyContent: 'center',
@@ -56,12 +55,45 @@ var styles = StyleSheet.create({
 })
 
 class Shopping extends React.Component{
+  goToRender(){
+
+  }
+
   render(){
+
+
+    var shoppinginfo = [
+    {Name: "Uniqlo SoHo", Address: "97 Sullivan Street, New York, NY 10012", Description: "Sushi", Phone: "212-274-0404", Website: "www.blueribbonrestaurants.com"},
+    {Name: "Apple Store", Address: "17 Cleveland Place, New York, NY 10012", Description: "Cheesecake", Phone: "212-966-5585", Website: "www.eileenscheesecake.com"},
+    {Name: "Topshop", Address: "51 Spring Street, New York, NY 10012", Description: "Pizza", Phone: "212-966-9229", Website: "www.thevodkaslice.com"},
+    {Name: "Prade", Address: "37 Spring Street, New York, NY 10012", Description: "Desert", Phone: "212-274-0008", Website: "www.ricetoriches.com"}]
+
+    console.log('Res shoppinginfo', shoppinginfo)
+
+    var list = shoppinginfo.map((item, index) => {
+      return (
+        <View key={index}>
+          <View style={styles.rowContainer}>
+            <TouchableHighlight
+              onPress={this.goToRender.bind(this)}
+              underlayColor="transparent"
+              style={styles.button}>
+              <Text style={styles.buttonText}>{shoppinginfo[index].Name}</Text>
+            </TouchableHighlight>
+
+          </View>
+
+        </View>
+      )
+    })
+
+
     return (
       <View style={styles.mainContainer}>
-        <View style={{flex: .8}}>
-        <Text style={styles.title}>Main</Text>
-        </View>
+        <ScrollView style={{flex: .8}}  >
+          <Text style={styles.title}> Main </Text>
+          {list}
+        </ScrollView>
 
         <View style={{flex: .2}}>
         <Text style={styles.title}>Footer</Text>

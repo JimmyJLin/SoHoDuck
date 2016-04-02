@@ -71,7 +71,6 @@ class Dashboard extends React.Component{
   goToRes(){
     api.getRes(this.state.resinfo)
       .then((jsonres)=>{
-        console.log(jsonres)
         this.props.navigator.push({
           component: Res,
           title: 'Restaurant & Bar',

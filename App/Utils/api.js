@@ -1,7 +1,7 @@
 var api = {
 
 getRes(){
-  var url = 'https://sohoduckres.firebaseio.com/.json';
+  var url = 'https://duckrestaurant.firebaseio.com/.json';
   return fetch(url).then((res) => res.json());
 }
 
