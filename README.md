@@ -87,8 +87,8 @@ Guided (SoHo) walking tour iOS App from a perspective of local - showcasing off 
 | Date     | Task     | Comments     |
 | :------------- | :------------- | :------------- |
 | March 30 (Wednesday) | React Native Mobile iOS App concept proofing & mockup       |        |
-| March 31 (Thursday) | iOS App Planning  |        |
-| April 1 (Friday) | iOS App Setup (Landing Page & Dashboard)  |        |
+| March 31 (Thursday) | iOS App Planning  | completed wireframs, ERDs, user stories and overall set deadlines       |
+| April 1 (Friday) | iOS App Setup (Landing Page & Dashboard)  | basic setup complete, able to compile and bundle basic functioning app to iphone  |
 | April 2 (Saturday) | Rest / Bar page  |        |
 | April 3 (Sunday) | Sites page  |       |
 | April 4 (Monday) | Shopping Page  |        |

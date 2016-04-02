@@ -3,6 +3,7 @@ const Res = require('./Res')
 const Shopping = require('./Shopping')
 const Sites = require('./Sites')
 const Tour = require('./Tour')
+const api = require('../Utils/api')
 
 const {
   Text,
@@ -29,6 +30,18 @@ var styles = StyleSheet.create({
 });
 
 class Dashboard extends React.Component{
+  constructor(props){
+    super(props);
+    this.state = {
+      resinfo: '',
+      shoppinginfo: '',
+      sitesinfo: '',
+      tourinfo: '',
+      isLoading: false,
+      error: false
+    }
+  }
+
   makeBackground(btn){
   var obj = {
     flexDirection: 'row',
@@ -56,10 +69,18 @@ class Dashboard extends React.Component{
   }
 
   goToRes(){
-    this.props.navigator.push({
-      component: Res,
-      title: 'Resturant & Bar'
-    })
+    api.getRes(this.state.resinfo)
+      .then((jsonres)=>{
+        console.log(jsonres)
+        this.props.navigator.push({
+          component: Res,
+          title: 'Restaurant & Bar',
+          passProps: {
+            restaurant: jsonres,
+            resinfo: this.props.resinfo
+          }
+        })
+      })
   }
 
   goToSites(){

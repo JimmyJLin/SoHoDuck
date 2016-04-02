@@ -56,11 +56,22 @@ var styles = StyleSheet.create({
 })
 
 class Res extends React.Component{
+  gotToRender(){
+
+  }
+
   render(){
+    var resinfo = this.props.resinfo;
+    var list = resinfo.map((item, index))
+    console.log(list)
     return (
-      <View style={styles.mainContainer}>
-        <View style={{flex: .8}}>
-        <Text style={styles.title}>Main</Text>
+      <View key={index} style={styles.mainContainer}>
+        <View style={{flex: .8}}  >
+          <TouchableHighlight
+            onPress={this.goToRender.bind(this)}
+            underlayColor="88D4F5">
+            <Text style={styles.title}></Text>
+          </TouchableHighlight>
         </View>
 
         <View style={{flex: .2}}>
