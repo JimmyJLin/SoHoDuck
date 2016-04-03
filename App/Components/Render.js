@@ -1,31 +1,24 @@
 const React = require('react-native');
-const Footer = require('./Footer');
+// const Web_View = require('./Helpers/WebView')
 
-const {
+var {
   Text,
   View,
-  MapView,
   NavigatorIOS,
   Image,
   ScrollView,
+  MapView,
+  TextInput,
+  ListView,
   StyleSheet,
-  PropTypes,
-  TabBarIOS,
-  TouchableOpacity,
   TouchableHighlight
 } = React;
 
-const regionText = {
-  latitude: '0',
-  longitude: '0',
-  latitudeDelta: '0',
-  longitudeDelta: '0',
-}
 
-const styles = StyleSheet.create({
+var styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    marginTop: 65,
+    marginTop: 64,
     flexDirection: 'column',
     justifyContent: 'center',
     backgroundColor: '#48BBEC'
@@ -67,38 +60,57 @@ const styles = StyleSheet.create({
     height: 300,
     borderWidth: 1,
     borderColor: '#000000',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
   },
 })
 
-class Tour extends React.Component{
 
+class Render extends React.Component{
   constructor(props){
     super(props);
     this.state = {
       isFirstLoad: true,
       mapRegion: undefined,
       mapRegionInput: undefined,
+      initialPosition: undefined,
+      lastPosition: undefined,
       annotation: [],
+      region: {
+        latitude: 0,
+        longitude: 0,
+      },
+      dataSource: new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1 !== row2,
+      }),
     }
   }
+
 
   render(){
     return (
       <View style={styles.mainContainer}>
         <View style={{flex: .8}}>
-        <MapView
-          style={styles.map}
-          showsUserLocation={true}
-          followUserLocation={true}/>
-        </View>
+          <MapView
+            style={styles.map}
+            selectTextOnFocus={true}
+            rotateEnabled={true}
+            scrollEnabled={true}
+            enableHighAccuracy={true}
+            showsUserLocation={true}
+            followUserLocation={true}
+            />
 
+        </View>
         <View style={{flex: .2}}>
-        <Text style={styles.title}>Footer</Text>
-        <Footer/>
+          <Text style={styles.title}> Hello World! </Text>
         </View>
       </View>
     )
   }
 }
 
-module.exports = Tour;
+module.exports = Render;
