@@ -9,6 +9,7 @@ var {
   ScrollView,
   MapView,
   TextInput,
+  Image,
   ListView,
   StyleSheet,
   TouchableHighlight
@@ -24,20 +25,17 @@ var styles = StyleSheet.create({
     backgroundColor: '#48BBEC'
   },
   title: {
-    marginBottom: 20,
+    marginBottom: 10,
     fontSize: 25,
     textAlign: 'center',
     color: '#fff'
   },
-  searchInput: {
-    height: 50,
-    padding: 4,
-    marginRight: 5,
-    fontSize: 23,
-    borderWidth: 1,
-    borderColor: 'white',
-    borderRadius: 8,
-    color: 'white'
+  text: {
+    marginTop: 10,
+    marginBottom: 5,
+    fontSize: 15,
+    textAlign: 'center',
+    color: '#fff'
   },
   buttonText: {
     fontSize: 18,
@@ -66,6 +64,13 @@ var styles = StyleSheet.create({
     right: 0,
     bottom: 0,
   },
+  detailsImage: {
+    marginTop: 0,
+    width: 400,
+    height: 200,
+    backgroundColor: '#eaeaea',
+    marginRight: 10,
+  },
 })
 
 
@@ -89,27 +94,75 @@ class Render extends React.Component{
     }
   }
 
+  getRowTitle(title, item){
+    return item[0]
+  }
 
   render(){
-    return (
-      <View style={styles.mainContainer}>
-        <View style={{flex: .8}}>
-          <MapView
-            style={styles.map}
-            selectTextOnFocus={true}
-            rotateEnabled={true}
-            scrollEnabled={true}
-            enableHighAccuracy={true}
-            showsUserLocation={true}
-            followUserLocation={true}
-            />
+    const objArr = Object.keys(this.props)
+    console.log('Render Object', objArr[2])
 
+    if (objArr[2] == 'resinfo'){
+      return (
+        <View style={styles.mainContainer}>
+          <View style={{flex: .8}}>
+            <Text style={styles.title}>
+            {this.props.resinfo.Name}
+            </Text>
+            <Image
+            source={{uri: this.props.resinfo.Image}}
+            style={styles.detailsImage}/>
+            <Text style={styles.text}>Address: {this.props.resinfo.Address}</Text>
+            <Text style={styles.text}>Description: {this.props.resinfo.Description}</Text>
+            <Text style={styles.text}>Phone: {this.props.resinfo.Phone}</Text>
+            <Text style={styles.text}>Website: {this.props.resinfo.Website}</Text>
+          </View>
+          <View style={{flex: .2}}>
+            <Text style={styles.title}> Hello World! </Text>
+          </View>
         </View>
-        <View style={{flex: .2}}>
-          <Text style={styles.title}> Hello World! </Text>
+      )
+    } else if (objArr[2] == 'siteinfo') {
+      return (
+        <View style={styles.mainContainer}>
+          <View style={{flex: .8}}>
+            <Text style={styles.title}>
+            {this.props.siteinfo.Name}
+            </Text>
+            <Image
+            source={{uri: this.props.siteinfo.Image}}
+            style={styles.detailsImage}/>
+            <Text style={styles.text}>Address: {this.props.siteinfo.Address}</Text>
+            <Text style={styles.text}>Description: {this.props.siteinfo.Description}</Text>
+            <Text style={styles.text}>Phone: {this.props.siteinfo.Phone}</Text>
+            <Text style={styles.text}>Website: {this.props.siteinfo.Website}</Text>
+          </View>
+          <View style={{flex: .2}}>
+            <Text style={styles.title}> Hello World! </Text>
+          </View>
         </View>
-      </View>
-    )
+      )
+    } else {
+      return (
+        <View style={styles.mainContainer}>
+          <View style={{flex: .8}}>
+            <Text style={styles.title}>
+            {this.props.shoppinginfo.Name}
+            </Text>
+            <Image
+            source={{uri: this.props.shoppinginfo.Image}}
+            style={styles.detailsImage}/>
+            <Text style={styles.text}>Address: {this.props.shoppinginfo.Address}</Text>
+            <Text style={styles.text}>Description: {this.props.shoppinginfo.Description}</Text>
+            <Text style={styles.text}>Phone: {this.props.shoppinginfo.Phone}</Text>
+            <Text style={styles.text}>Website: {this.props.shoppinginfo.Website}</Text>
+          </View>
+          <View style={{flex: .2}}>
+            <Text style={styles.title}> Hello World! </Text>
+          </View>
+        </View>
+      )
+    }
   }
 }
 
