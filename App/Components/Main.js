@@ -4,7 +4,7 @@ const windowSize = Dimensions.get('window');
 const Dashboard = require('./Dashboard')
 const Signup = require('./Signup')
 const Firebase = require('firebase');
-
+const Animatable = require('react-native-animatable');
 
 const {
   AppRegistry,
@@ -87,61 +87,63 @@ class Main extends React.Component{
         source={{uri: 'http://i.imgur.com/xlQ56UK.jpg'}}/>
 
         {/* Header Check Mark */}
-        <View style={styles.header}>
-          <Image style={styles.mark}
-          source={{uri: 'http://i64.tinypic.com/33pbxxw.png'}}/>
-        </View>
+        <Animatable.View animation="bounceInDown" easing="ease-in" style={styles.header}>
+            <Image style={styles.mark}
+            source={{uri: 'http://i64.tinypic.com/33pbxxw.png'}}/>
+        </Animatable.View>
 
         <View style={styles.welcomeContainer}>
-        <Text style={styles.title}> Welcome to SoHoDuck! </Text>
+          <Animatable.Text style={styles.title} animation="slideInDown" iterationCount={50} direction="alternate"> Welcome to SoHoDuck! </Animatable.Text>
         </View>
 
         {/* username section */}
         <View style={styles.inputs}>
-          <View style={styles.inputContainer}>
-            <Image style={styles.inputUsername}
-            source={{uri: 'http://i66.tinypic.com/2qltjx3.png'}}/>
-            <TextInput style={[styles.input, styles.whiteFont]}
-            placeholder="Email"
-            placeholderTextColor="#FFF"
-            value={this.state.email}
-            onChange={this.handleEmail.bind(this)}/>
-          </View>
+        <Animatable.View animation="bounceInLeft" style={styles.inputContainer}>
+          <Image style={styles.inputUsername}
+          source={{uri: 'http://i66.tinypic.com/2qltjx3.png'}}/>
+          <TextInput style={[styles.input, styles.whiteFont]}
+          placeholder="Email"
+          placeholderTextColor="#FFF"
+          value={this.state.email}
+          onChange={this.handleEmail.bind(this)}/>
+        </Animatable.View>
 
-          {/* password section*/}
-          <View style={styles.inputContainer}>
-            <Image style={styles.inputPassword}
-            source={{uri: 'http://i.imgur.com/ON58SIG.png'}}/>
-            <TextInput style={[styles.input, styles.whiteFont]}
-            secureTextEntry={true}
-            placeholder="Password"
-            placeholderTextColor="#FFF"
-            value={this.state.password}
-            onChange={this.handlePassword.bind(this)}/>
-          </View>
+        {/* password section*/}
+        <Animatable.View animation="bounceInRight" style={styles.inputContainer}>
+          <Image style={styles.inputPassword}
+          source={{uri: 'http://i.imgur.com/ON58SIG.png'}}/>
+          <TextInput style={[styles.input, styles.whiteFont]}
+          secureTextEntry={true}
+          placeholder="Password"
+          placeholderTextColor="#FFF"
+          value={this.state.password}
+          onChange={this.handlePassword.bind(this)}/>
+        </Animatable.View>
 
           {/* forgot password */}
           <View style={styles.forgotContainer}>
-              <Text style={styles.greyFont}>Forgot Password</Text>
+            <Text style={styles.greyFont}>Forgot Password</Text>
           </View>
         </View>
 
         {/* Sign In*/}
-        <View style={styles.signin}>
-            <Text style={styles.whiteFont}
-            onPress={this.handleSignin.bind(this)}>Sign In</Text>
-        </View>
+        <Animatable.View animation="bounceInLeft" style={styles.signin}>
+          <Text style={styles.buttonText}
+          onPress={this.handleSignin.bind(this)}
+          underlayColor="#E39EBF">Sign In</Text>
+        </Animatable.View>
 
         {/* Guest Login*/}
-        <View style={styles.signin}>
-            <Text style={styles.whiteFont}
-            onPress={this.goToDashboard.bind(this)}>Start Quacking</Text>
-        </View>
+        <Animatable.View animation="bounceInRight" style={styles.signin}>
+          <Text style={styles.buttonText}
+          onPress={this.goToDashboard.bind(this)}
+          underlayColor="#E39EBF">Start Quacking</Text>
+        </Animatable.View>
 
         {/*Sign up*/}
-        <View style={styles.signup}>
-            <Text style={styles.greyFont}>Don't have an account?<Text style={styles.whiteFont} onPress={this.goToSignup.bind(this)}>  Sign Up</Text></Text>
-        </View>
+        <Animatable.View animation="bounceInUp" style={styles.signup}>
+          <Text style={styles.greyFont}>Don't have an account?<Text style={styles.whiteFont} onPress={this.goToSignup.bind(this)}>  Sign Up</Text></Text>
+        </Animatable.View>
 
       </View>
 
@@ -178,7 +180,10 @@ var styles = StyleSheet.create({
         backgroundColor: '#FF3366',
         padding: 20,
         marginBottom: 10,
-        alignItems: 'center'
+        alignItems: 'center',
+        flexDirection: 'row',
+        alignSelf: 'stretch',
+        justifyContent: 'center',
     },
     signup: {
       justifyContent: 'center',
@@ -229,6 +234,11 @@ var styles = StyleSheet.create({
       fontSize: 25,
       textAlign: 'center',
       color: '#fff'
+    },
+    buttonText: {
+      fontSize: 20,
+      color: 'white',
+      alignSelf: 'center'
     },
 })
 

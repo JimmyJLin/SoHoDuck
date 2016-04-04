@@ -3,6 +3,8 @@ const Res = require('./Res')
 const Shopping = require('./Shopping')
 const Sites = require('./Sites')
 const Tour = require('./Tour')
+const Animatable = require('react-native-animatable');
+
 
 const {
   Text,
@@ -79,33 +81,42 @@ class Dashboard extends React.Component{
   render(){
     return (
       <View style={styles.container}>
+        <Animatable.View animation="bounceInDown" style={this.makeBackground(0)}>
         <TouchableHighlight
         style={this.makeBackground(0)}
         onPress={this.goToTour.bind(this)}
         underlayColor="#88D4F5">
           <Text style={styles.buttonText}> Walking Tour</Text>
-        </TouchableHighlight>
+          </TouchableHighlight>
+        </Animatable.View>
 
-        <TouchableHighlight
-        style={this.makeBackground(1)}
-        onPress={this.goToRes.bind(this)}
-        underlayColor="#E39EBF">
-          <Text style={styles.buttonText}> Resturant / Bar </Text>
-        </TouchableHighlight>
+        <Animatable.View animation="bounceInLeft" style={this.makeBackground(1)}>
+          <TouchableHighlight
+          style={this.makeBackground(1)}
+          onPress={this.goToRes.bind(this)}
+          underlayColor="#E39EBF">
+            <Text style={styles.buttonText}> Resturant / Bar </Text>
+          </TouchableHighlight>
+        </Animatable.View>
 
-        <TouchableHighlight
-        style={this.makeBackground(2)}
-        onPress={this.goToSites.bind(this)}
-        underlayColor="#9BAAF3">
-          <Text style={styles.buttonText}> Additional POIs </Text>
-        </TouchableHighlight>
+        <Animatable.View animation="bounceInRight" style={this.makeBackground(2)}>
+          <TouchableHighlight
+          style={this.makeBackground(2)}
+          onPress={this.goToSites.bind(this)}
+          underlayColor="#9BAAF3">
+            <Text style={styles.buttonText}> Additional POIs </Text>
+          </TouchableHighlight>
+        </Animatable.View>
 
-        <TouchableHighlight
-        style={this.makeBackground(3)}
-        onPress={this.goToShopping.bind(this)}
-        underlayColor="#A20CE8">
-          <Text style={styles.buttonText}> Shopping </Text>
-        </TouchableHighlight>
+        <Animatable.View animation="bounceInUp" style={this.makeBackground(3)}>
+          <TouchableHighlight
+          style={this.makeBackground(3)}
+          onPress={this.goToShopping.bind(this)}
+          underlayColor="#A20CE8">
+            <Text style={styles.buttonText}> Shopping </Text>
+          </TouchableHighlight>
+        </Animatable.View>
+
       </View>
     )
   }
