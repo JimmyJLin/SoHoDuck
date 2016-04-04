@@ -152,7 +152,7 @@ class Main extends React.Component{
 }
 
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
       marginTop: 20,
       flexDirection: 'column',

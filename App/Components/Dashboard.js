@@ -15,20 +15,6 @@ const {
   TouchableHighlight
 } = React;
 
-var styles = StyleSheet.create({
-  container: {
-    marginTop: 65,
-    flex: 1
-  },
-  image: {
-    height: 350,
-  },
-  buttonText: {
-    fontSize: 24,
-    color: 'white',
-    alignSelf: 'center'
-  }
-});
 
 class Dashboard extends React.Component{
   makeBackground(btn){
@@ -121,5 +107,21 @@ class Dashboard extends React.Component{
     )
   }
 }
+
+
+var styles = StyleSheet.create({
+  container: {
+    marginTop: 65,
+    flex: 1
+  },
+  image: {
+    height: 350,
+  },
+  buttonText: {
+    fontSize: 24,
+    color: 'white',
+    alignSelf: 'center'
+  }
+});
 
 module.exports = Dashboard;

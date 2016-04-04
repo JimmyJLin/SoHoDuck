@@ -122,7 +122,7 @@ class Signup extends React.Component{
 }
 
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
       marginTop: 60,
       flexDirection: 'column',

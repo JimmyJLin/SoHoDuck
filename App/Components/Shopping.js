@@ -1,7 +1,7 @@
 const React = require('react-native');
 const Render = require('./Render')
 
-var {
+const {
   Text,
   View,
   NavigatorIOS,
@@ -12,7 +12,52 @@ var {
 } = React;
 
 
-var styles = StyleSheet.create({
+class Shopping extends React.Component{
+  goToRender(index){
+    this.props.navigator.push({
+      component: Render,
+      title: 'Direction',
+      passProps: {shoppinginfo: shoppinginfo[index]}
+    })
+  }
+
+  render(){
+
+    const list = shoppinginfo.map((item, index) => {
+      return (
+        <View key={index}>
+          <View style={styles.rowContainer}>
+            <TouchableHighlight
+              onPress={this.goToRender.bind(this, index)}
+              underlayColor="transparent"
+              style={styles.button}>
+              <Text style={styles.buttonText}>{shoppinginfo[index].Name}</Text>
+            </TouchableHighlight>
+
+          </View>
+
+        </View>
+      )
+    })
+
+
+    return (
+      <View style={styles.mainContainer}>
+        <ScrollView style={{flex: .8}}  >
+          <Text style={styles.title}> Main </Text>
+          {list}
+        </ScrollView>
+
+        <View style={{flex: .2}}>
+        <Text style={styles.title}>Footer</Text>
+        </View>
+      </View>
+    )
+  }
+}
+
+
+const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
     marginTop: 65,
@@ -61,54 +106,10 @@ var styles = StyleSheet.create({
   },
 })
 
-var shoppinginfo = [
+const shoppinginfo = [
   {Name: "Uniqlo SoHo", Address: "546 Broadway, New York, NY 10012", Description: "Clothing retailer producing a collection of casualwear & accessories for men, women & children.", Phone: "877-486-4756", Website: "www.uniqlo.com", Image: "http://i67.tinypic.com/a3lgsh.jpg"},
   {Name: "Pearl River Mart", Address: "17 Cleveland Place, New York, NY 10012", Description: "Eclectic emporium with 3-floors of Chinese apparel, accessories, housewares & furniture", Phone: "800-878-2446", Website: "www.pearlriver.com", Image: "http://i63.tinypic.com/2vmczl0.jpg"},
   {Name: "Topshop", Address: "478 Broadway, New York, NY 10012", Description: "Topshop is a British multinatioal fashion retailer of clothing, shoes, make-up and accessories - of which some 300 are in the UK", Phone: "866-853-8559", Website: "us.topshop.com", Image: "http://i68.tinypic.com/2pqrjh4.jpg"},
   {Name: "Prada", Address: "575 Broadway, New York, NY 10012", Description: "Retailer of upscale apparel, handbags, fragrances & more from the Italian designer", Phone: "212-334-8888", Website: "www.prada.com", Image: "http://i63.tinypic.com/s6ists.jpg"}]
-
-class Shopping extends React.Component{
-  goToRender(index){
-    this.props.navigator.push({
-      component: Render,
-      title: 'Direction',
-      passProps: {shoppinginfo: shoppinginfo[index]}
-    })
-  }
-
-  render(){
-
-    var list = shoppinginfo.map((item, index) => {
-      return (
-        <View key={index}>
-          <View style={styles.rowContainer}>
-            <TouchableHighlight
-              onPress={this.goToRender.bind(this, index)}
-              underlayColor="transparent"
-              style={styles.button}>
-              <Text style={styles.buttonText}>{shoppinginfo[index].Name}</Text>
-            </TouchableHighlight>
-
-          </View>
-
-        </View>
-      )
-    })
-
-
-    return (
-      <View style={styles.mainContainer}>
-        <ScrollView style={{flex: .8}}  >
-          <Text style={styles.title}> Main </Text>
-          {list}
-        </ScrollView>
-
-        <View style={{flex: .2}}>
-        <Text style={styles.title}>Footer</Text>
-        </View>
-      </View>
-    )
-  }
-}
 
 module.exports = Shopping;
