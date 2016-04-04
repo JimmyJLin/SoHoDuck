@@ -100,7 +100,6 @@ class Render extends React.Component{
 
   render(){
     const objArr = Object.keys(this.props)
-    console.log('Render Object', objArr[2])
 
     if (objArr[2] == 'resinfo'){
       return (
