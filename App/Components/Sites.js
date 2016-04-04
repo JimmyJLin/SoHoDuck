@@ -1,5 +1,7 @@
 const React = require('react-native');
 const Render = require('./Render')
+const Animatable = require('react-native-animatable');
+
 
 const {
   Text,
@@ -28,15 +30,17 @@ class Sites extends React.Component{
     const list = siteinfo.map((item, index) => {
       return (
         <View key={index}>
-          <View style={styles.rowContainer}>
-            <TouchableHighlight
-              onPress={this.goToRender.bind(this, index)}
-              underlayColor="transparent"
-              style={styles.button}>
-              <Text style={styles.buttonText}>{siteinfo[index].Name}</Text>
-            </TouchableHighlight>
 
-          </View>
+        <Animatable.View
+        animation="zoomInDown"
+        style={styles.rowContainer}>
+          <TouchableHighlight
+            onPress={this.goToRender.bind(this, index)}
+            underlayColor="transparent"
+            style={styles.button}>
+            <Text style={styles.buttonText}>{siteinfo[index].Name}</Text>
+          </TouchableHighlight>
+        </Animatable.View>
 
         </View>
       )
