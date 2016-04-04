@@ -1,10 +1,9 @@
 const React = require('react-native');
 const Dimensions = require('Dimensions');
 const windowSize = Dimensions.get('window');
-const Dashboard = require('./Dashboard')
-const Signup = require('./Signup')
 const Firebase = require('firebase');
-
+const Main = require('./Main')
+const Dashboard = require('./Dashboard')
 
 const {
   AppRegistry,
@@ -20,8 +19,8 @@ const ref = new Firebase('https://duckrestaurant.firebaseio.com/')
 const getRef = new Firebase('https://duckrestaurant.firebaseio.com/rusers')
 const rusers = ref.child('rusers')
 
+class Signup extends React.Component{
 
-class Main extends React.Component{
   constructor(props){
     super(props);
     this.state = {
@@ -30,20 +29,6 @@ class Main extends React.Component{
       isLoading: false,
       error: false,
     }
-  }
-
-  goToDashboard(){
-    this.props.navigator.push({
-      component: Dashboard,
-      title: 'Dashboard'
-    })
-  }
-
-  goToSignup(){
-    this.props.navigator.push({
-      component: Signup,
-      title: 'Signup'
-    })
   }
 
   handleEmail(event){
@@ -58,14 +43,15 @@ class Main extends React.Component{
     });
   }
 
-  handleSignin(){
-    ref.authWithPassword({
+  handleSignup(){
+    ref.createUser({
       email: this.state.email,
       password: this.state.password
-    }, (error, authData) =>{
-      if (error) {
-        console.log('Login Failed!', error)
+    }, (error, userData) => {
+      if(error) {
+        console.log('Error creating user: ', error);
       } else {
+        console.log("Signup Success")
         this.props.navigator.resetTo({
           component: Dashboard,
           title: 'Dashboard'
@@ -79,25 +65,20 @@ class Main extends React.Component{
   }
 
   render(){
-    return (
-      <View style={styles.container}>
-
-      {/* Background Image */}
+    return(
+      <View  style={styles.container}>
+        {/* Background Image */}
         <Image style={styles.bg}
         source={{uri: 'http://i.imgur.com/xlQ56UK.jpg'}}/>
 
         {/* Header Check Mark */}
         <View style={styles.header}>
           <Image style={styles.mark}
-          source={{uri: 'http://i64.tinypic.com/33pbxxw.png'}}/>
+          source={{uri: 'http://i.imgur.com/da4G0Io.png'}}/>
         </View>
 
-        <View style={styles.welcomeContainer}>
-        <Text style={styles.title}> Welcome to SoHoDuck! </Text>
-        </View>
-
-        {/* username section */}
         <View style={styles.inputs}>
+
           <View style={styles.inputContainer}>
             <Image style={styles.inputUsername}
             source={{uri: 'http://i66.tinypic.com/2qltjx3.png'}}/>
@@ -119,32 +100,19 @@ class Main extends React.Component{
             value={this.state.password}
             onChange={this.handlePassword.bind(this)}/>
           </View>
-
-          {/* forgot password */}
-          <View style={styles.forgotContainer}>
-              <Text style={styles.greyFont}>Forgot Password</Text>
-          </View>
         </View>
 
-        {/* Sign In*/}
+        {/* Sign up*/}
         <View style={styles.signin}>
             <Text style={styles.whiteFont}
-            onPress={this.handleSignin.bind(this)}>Sign In</Text>
+            onPress={this.handleSignup.bind(this)}>Sign Up</Text>
         </View>
 
-        {/* Guest Login*/}
-        <View style={styles.signin}>
-            <Text style={styles.whiteFont}
-            onPress={this.goToDashboard.bind(this)}>Start Quacking</Text>
+        {/* Emptied Space */}
+        <View style={styles.forgotContainer}>
+          <Text style={styles.greyFont}></Text>
         </View>
-
-        {/*Sign up*/}
-        <View style={styles.signup}>
-            <Text style={styles.greyFont}>Don't have an account?<Text style={styles.whiteFont} onPress={this.goToSignup.bind(this)}>  Sign Up</Text></Text>
-        </View>
-
       </View>
-
     )
   }
 }
@@ -152,33 +120,33 @@ class Main extends React.Component{
 
 var styles = StyleSheet.create({
     container: {
-      marginTop: 20,
+      marginTop: 60,
       flexDirection: 'column',
       flex: 1,
       backgroundColor: 'transparent'
     },
     bg: {
-        position: 'absolute',
-        left: 0,
-        top: 0,
-        width: windowSize.width,
-        height: windowSize.height
+      position: 'absolute',
+      left: 0,
+      top: 0,
+      width: windowSize.width,
+      height: windowSize.height
     },
     header: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: .5,
-        backgroundColor: 'transparent'
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: .5,
+      backgroundColor: 'transparent'
     },
     mark: {
-        width: 150,
-        height: 150
+      width: 150,
+      height: 150
     },
     signin: {
-        backgroundColor: '#FF3366',
-        padding: 20,
-        marginBottom: 10,
-        alignItems: 'center'
+      backgroundColor: '#FF3366',
+      padding: 20,
+      marginBottom: 10,
+      alignItems: 'center'
     },
     signup: {
       justifyContent: 'center',
@@ -186,14 +154,14 @@ var styles = StyleSheet.create({
       flex: .15
     },
     inputs: {
-        marginTop: 10,
-        marginBottom: 10,
-        flex: .25
+      marginTop: 10,
+      marginBottom: 10,
+      flex: .25
     },
     inputPassword: {
-        marginLeft: 15,
-        width: 20,
-        height: 21
+      marginLeft: 15,
+      width: 20,
+      height: 21
     },
     inputUsername: {
       marginLeft: 15,
@@ -201,18 +169,18 @@ var styles = StyleSheet.create({
       height: 20
     },
     inputContainer: {
-        padding: 10,
-        borderWidth: 1,
-        borderBottomColor: '#CCC',
-        borderColor: 'transparent'
+      padding: 10,
+      borderWidth: 1,
+      borderBottomColor: '#CCC',
+      borderColor: 'transparent'
     },
     input: {
-        position: 'absolute',
-        left: 61,
-        top: 12,
-        right: 0,
-        height: 20,
-        fontSize: 14
+      position: 'absolute',
+      left: 61,
+      top: 12,
+      right: 0,
+      height: 20,
+      fontSize: 14
     },
     forgotContainer: {
       alignItems: 'flex-end',
@@ -232,4 +200,4 @@ var styles = StyleSheet.create({
     },
 })
 
-module.exports = Main;
+module.exports = Signup;
