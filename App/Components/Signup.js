@@ -4,6 +4,8 @@ const windowSize = Dimensions.get('window');
 const Firebase = require('firebase');
 const Main = require('./Main')
 const Dashboard = require('./Dashboard')
+const Animatable = require('react-native-animatable');
+
 
 const {
   AppRegistry,
@@ -72,14 +74,14 @@ class Signup extends React.Component{
         source={{uri: 'http://i.imgur.com/xlQ56UK.jpg'}}/>
 
         {/* Header Check Mark */}
-        <View style={styles.header}>
+        <Animatable.View animation="bounceInDown" style={styles.header}>
           <Image style={styles.mark}
           source={{uri: 'http://i.imgur.com/da4G0Io.png'}}/>
-        </View>
+        </Animatable.View>
 
         <View style={styles.inputs}>
 
-          <View style={styles.inputContainer}>
+          <Animatable.View animation="bounceInRight" style={styles.inputContainer}>
             <Image style={styles.inputUsername}
             source={{uri: 'http://i66.tinypic.com/2qltjx3.png'}}/>
             <TextInput style={[styles.input, styles.whiteFont]}
@@ -87,10 +89,11 @@ class Signup extends React.Component{
             placeholderTextColor="#FFF"
             value={this.state.email}
             onChange={this.handleEmail.bind(this)}/>
-          </View>
+          </Animatable.View>
+
 
           {/* password section*/}
-          <View style={styles.inputContainer}>
+          <Animatable.View animation="bounceInLeft" style={styles.inputContainer}>
             <Image style={styles.inputPassword}
             source={{uri: 'http://i.imgur.com/ON58SIG.png'}}/>
             <TextInput style={[styles.input, styles.whiteFont]}
@@ -99,14 +102,15 @@ class Signup extends React.Component{
             placeholderTextColor="#FFF"
             value={this.state.password}
             onChange={this.handlePassword.bind(this)}/>
-          </View>
+          </Animatable.View>
+
         </View>
 
         {/* Sign up*/}
-        <View style={styles.signin}>
-            <Text style={styles.whiteFont}
-            onPress={this.handleSignup.bind(this)}>Sign Up</Text>
-        </View>
+        <Animatable.View animation="bounceInUp" style={styles.signin}>
+          <Text style={styles.whiteFont}
+          onPress={this.handleSignup.bind(this)}>Sign Up</Text>
+        </Animatable.View>
 
         {/* Emptied Space */}
         <View style={styles.forgotContainer}>
