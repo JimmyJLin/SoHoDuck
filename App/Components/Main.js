@@ -3,6 +3,7 @@ const Dimensions = require('Dimensions');
 const windowSize = Dimensions.get('window');
 const Dashboard = require('./Dashboard')
 const Signup = require('./Signup')
+const Firebase = require('firebase');
 
 
 const {
@@ -14,6 +15,11 @@ const {
   Image,
   TouchableHighlight
 } = React;
+
+const ref = new Firebase('https://duckrestaurant.firebaseio.com/')
+const getRef = new Firebase('https://duckrestaurant.firebaseio.com/rusers')
+const rusers = ref.child('rusers')
+
 
 class Main extends React.Component{
   constructor(props){
@@ -52,7 +58,21 @@ class Main extends React.Component{
     });
   }
 
-  handleSubmit(){
+  handleSignin(){
+    ref.authWithPassword({
+      email: this.state.email,
+      password: this.state.password
+    }, (error, authData) =>{
+      if (error) {
+        console.log('Login Failed!', error)
+      } else {
+        this.props.navigator.resetTo({
+          component: Dashboard,
+          title: 'Dashboard'
+          })
+        }
+      }
+    )
     this.setState({
       isLoading: true,
     });
@@ -93,6 +113,7 @@ class Main extends React.Component{
             <Image style={styles.inputPassword}
             source={{uri: 'http://i.imgur.com/ON58SIG.png'}}/>
             <TextInput style={[styles.input, styles.whiteFont]}
+            secureTextEntry={true}
             placeholder="Password"
             placeholderTextColor="#FFF"
             value={this.state.password}
@@ -108,7 +129,7 @@ class Main extends React.Component{
         {/* Sign In*/}
         <View style={styles.signin}>
             <Text style={styles.whiteFont}
-            onPress={this.handleSubmit.bind(this)}>Sign In</Text>
+            onPress={this.handleSignin.bind(this)}>Sign In</Text>
         </View>
 
         {/* Guest Login*/}

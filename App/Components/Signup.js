@@ -1,7 +1,9 @@
 const React = require('react-native');
 const Dimensions = require('Dimensions');
 const windowSize = Dimensions.get('window');
-
+const Firebase = require('firebase');
+const Main = require('./Main')
+const Dashboard = require('./Dashboard')
 
 const {
   AppRegistry,
@@ -13,24 +15,20 @@ const {
   TouchableHighlight
 } = React;
 
+const ref = new Firebase('https://duckrestaurant.firebaseio.com/')
+const getRef = new Firebase('https://duckrestaurant.firebaseio.com/rusers')
+const rusers = ref.child('rusers')
 
 class Signup extends React.Component{
 
   constructor(props){
     super(props);
     this.state = {
-      username: '',
       email: '',
       password: '',
       isLoading: false,
       error: false,
     }
-  }
-
-  handleUsername(event){
-    this.setState({
-      username: event.nativeEvent.text
-    });
   }
 
   handleEmail(event){
@@ -45,7 +43,22 @@ class Signup extends React.Component{
     });
   }
 
-  handleSubmit(){
+  handleSignup(){
+    ref.createUser({
+      email: this.state.email,
+      password: this.state.password
+    }, (error, userData) => {
+      if(error) {
+        console.log('Error creating user: ', error);
+      } else {
+        console.log("Signup Success")
+        this.props.navigator.resetTo({
+          component: Dashboard,
+          title: 'Dashboard'
+          })
+        }
+      }
+    )
     this.setState({
       isLoading: true,
     });
@@ -65,16 +78,6 @@ class Signup extends React.Component{
         </View>
 
         <View style={styles.inputs}>
-          {/* username section */}
-          <View style={styles.inputContainer}>
-            <Image style={styles.inputUsername}
-            source={{uri: 'http://i.imgur.com/iVVVMRX.png'}}/>
-            <TextInput style={[styles.input, styles.whiteFont]}
-            placeholder="Username"
-            placeholderTextColor="#FFF"
-            value={this.state.username}
-            onChange={this.handleUsername.bind(this)}/>
-          </View>
 
           <View style={styles.inputContainer}>
             <Image style={styles.inputUsername}
@@ -91,6 +94,7 @@ class Signup extends React.Component{
             <Image style={styles.inputPassword}
             source={{uri: 'http://i.imgur.com/ON58SIG.png'}}/>
             <TextInput style={[styles.input, styles.whiteFont]}
+            secureTextEntry={true}
             placeholder="Password"
             placeholderTextColor="#FFF"
             value={this.state.password}
@@ -101,7 +105,7 @@ class Signup extends React.Component{
         {/* Sign up*/}
         <View style={styles.signin}>
             <Text style={styles.whiteFont}
-            onPress={this.handleSubmit.bind(this)}>Sign Up</Text>
+            onPress={this.handleSignup.bind(this)}>Sign Up</Text>
         </View>
 
         {/* Emptied Space */}
