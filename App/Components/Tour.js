@@ -25,7 +25,6 @@ const regionText = {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    padding: 30,
     marginTop: 65,
     flexDirection: 'column',
     justifyContent: 'center',
@@ -65,8 +64,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   map: {
-    height: 200,
-    margin: 10,
+    height: 300,
     borderWidth: 1,
     borderColor: '#000000',
   },
@@ -91,8 +89,7 @@ class Tour extends React.Component{
         <MapView
           style={styles.map}
           showsUserLocation={true}
-          followUserLocation={true}
-        />
+          followUserLocation={true}/>
         </View>
 
         <View style={{flex: .2}}>
