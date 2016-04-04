@@ -4,7 +4,7 @@ const Shopping = require('./Shopping')
 const Sites = require('./Sites')
 const Tour = require('./Tour')
 const Animatable = require('react-native-animatable');
-
+const api = require('../Utils/api')
 
 const {
   Text,
@@ -44,10 +44,19 @@ class Dashboard extends React.Component{
   }
 
   goToRes(){
-    this.props.navigator.push({
-      component: Res,
-      title: 'Resturant & Bar'
-    })
+    api.getRes()
+      .then((res)=>{
+        console.log("dashboard res", res)
+        this.props.navigator.push({
+          component: Res,
+          title: 'Resturant & Bar',
+          passProps: {resInfo: res}
+        })
+        this.setState({
+          isLoading: false,
+          error: false,
+        })
+      })
   }
 
   goToSites(){

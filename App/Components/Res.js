@@ -2,6 +2,8 @@ const React = require('react-native');
 const Firebase = require('firebase')
 const Render = require('./Render')
 const WebView = require('./Helpers/WebView')
+const Animatable = require('react-native-animatable');
+
 
 var {
   Text,
@@ -33,19 +35,30 @@ class Res extends React.Component{
 
 
   render(){
+    // Able to hit API to render data .. feature choice to render data from from APP
+    const newArry =[]
+    const resInfoArr = Object.keys(this.props.resInfo).map((el)=>{
+      newArry.push(this.props.resInfo[el])
+    })
+    console.log("this.props.resInfo", this.props.resInfo)
+    console.log("resInfoArr", resInfoArr)
+    console.log("newArry", newArry)
+    // ends
 
-    var list = resinfo.map((item, index) => {
+    const list = resinfo.map((item, index) => {
       return (
         <View key={index}>
-          <View style={styles.rowContainer}>
-            <TouchableHighlight
-              onPress={this.goToRender.bind(this, index)}
-              underlayColor="transparent"
-              style={styles.button}>
-              <Text style={styles.buttonText}>{resinfo[index].Name}</Text>
-            </TouchableHighlight>
 
-          </View>
+        <Animatable.View
+        animation="zoomInDown"
+        style={styles.rowContainer}>
+          <TouchableHighlight
+            onPress={this.goToRender.bind(this, index)}
+            underlayColor="transparent"
+            style={styles.button}>
+            <Text style={styles.buttonText}>{resinfo[index].Name}</Text>
+          </TouchableHighlight>
+        </Animatable.View>
 
         </View>
       )
