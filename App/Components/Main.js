@@ -89,7 +89,7 @@ class Main extends React.Component{
         {/* Header Check Mark */}
         <Animatable.View animation="bounceInDown" easing="ease-in" style={styles.header}>
             <Image style={styles.mark}
-            source={require('./img/Main/Logo.jpg')}/>
+            source={require('./img/Main/Logo.png')}/>
         </Animatable.View>
 
         <View style={styles.welcomeContainer}>

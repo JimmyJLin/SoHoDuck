@@ -71,7 +71,7 @@ class Signup extends React.Component{
       <View  style={styles.container}>
         {/* Background Image */}
         <Image style={styles.bg}
-        source={require('./img/Main/Background.jpg')}/>
+        source={require('./img/Main/Background.png')}/>
 
         {/* Header Check Mark */}
         <Animatable.View animation="bounceInDown" style={styles.header}>
