@@ -15,6 +15,38 @@ const {
   TouchableHighlight
 } = React;
 
+class Tour extends React.Component{
+
+  constructor(props){
+    super(props);
+    this.state = {
+      isFirstLoad: true,
+      mapRegion: undefined,
+      mapRegionInput: undefined,
+      annotation: [],
+    }
+  }
+
+  render(){
+    return (
+      <View style={styles.mainContainer}>
+        <View style={{flex: .8}}>
+        <MapView
+          style={styles.map}
+          showsUserLocation={true}
+          followUserLocation={true}/>
+        </View>
+
+        <View style={{flex: .2}}>
+        <Text style={styles.title}>Footer</Text>
+        <Footer/>
+        </View>
+      </View>
+    )
+  }
+}
+
+
 const regionText = {
   latitude: '0',
   longitude: '0',
@@ -70,35 +102,5 @@ const styles = StyleSheet.create({
   },
 })
 
-class Tour extends React.Component{
-
-  constructor(props){
-    super(props);
-    this.state = {
-      isFirstLoad: true,
-      mapRegion: undefined,
-      mapRegionInput: undefined,
-      annotation: [],
-    }
-  }
-
-  render(){
-    return (
-      <View style={styles.mainContainer}>
-        <View style={{flex: .8}}>
-        <MapView
-          style={styles.map}
-          showsUserLocation={true}
-          followUserLocation={true}/>
-        </View>
-
-        <View style={{flex: .2}}>
-        <Text style={styles.title}>Footer</Text>
-        <Footer/>
-        </View>
-      </View>
-    )
-  }
-}
 
 module.exports = Tour;

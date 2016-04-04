@@ -71,19 +71,19 @@ class Signup extends React.Component{
       <View  style={styles.container}>
         {/* Background Image */}
         <Image style={styles.bg}
-        source={{uri: 'http://i.imgur.com/xlQ56UK.jpg'}}/>
+        source={require('./img/Main/Background.jpg')}/>
 
         {/* Header Check Mark */}
         <Animatable.View animation="bounceInDown" style={styles.header}>
           <Image style={styles.mark}
-          source={{uri: 'http://i.imgur.com/da4G0Io.png'}}/>
+          source={require('./img/Main/check.png')}/>
         </Animatable.View>
 
         <View style={styles.inputs}>
 
           <Animatable.View animation="bounceInRight" style={styles.inputContainer}>
             <Image style={styles.inputUsername}
-            source={{uri: 'http://i66.tinypic.com/2qltjx3.png'}}/>
+            source={require('./img/Main/email.png')}/>
             <TextInput style={[styles.input, styles.whiteFont]}
             placeholder="Email"
             placeholderTextColor="#FFF"
@@ -95,7 +95,7 @@ class Signup extends React.Component{
           {/* password section*/}
           <Animatable.View animation="bounceInLeft" style={styles.inputContainer}>
             <Image style={styles.inputPassword}
-            source={{uri: 'http://i.imgur.com/ON58SIG.png'}}/>
+            source={require('./img/Main/pass.jpg')}/>
             <TextInput style={[styles.input, styles.whiteFont]}
             secureTextEntry={true}
             placeholder="Password"
@@ -122,7 +122,7 @@ class Signup extends React.Component{
 }
 
 
-var styles = StyleSheet.create({
+const styles = StyleSheet.create({
     container: {
       marginTop: 60,
       flexDirection: 'column',

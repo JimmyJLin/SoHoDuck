@@ -29,70 +29,6 @@ const values = [1,2,3,4];
 
 const AnimatedScrollView = Animated.createAnimatedComponent(ScrollView);
 
-const styles = StyleSheet.create({
-  mainContainer: {
-    flex: 1,
-    marginTop: 64,
-    flexDirection: 'column',
-    justifyContent: 'center',
-    backgroundColor: '#48BBEC'
-  },
-  title: {
-    marginBottom: 20,
-    fontSize: 25,
-    textAlign: 'center',
-    color: '#fff'
-  },
-  searchInput: {
-    height: 50,
-    padding: 4,
-    marginRight: 5,
-    fontSize: 23,
-    borderWidth: 1,
-    borderColor: 'white',
-    borderRadius: 8,
-    color: 'white'
-  },
-  buttonText: {
-    fontSize: 18,
-    color: '#111',
-    alignSelf: 'center'
-  },
-  button: {
-    height: 45,
-    flexDirection: 'row',
-    backgroundColor: 'white',
-    borderColor: 'white',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    marginTop: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  },
-  map: {
-    height: 300,
-    borderWidth: 1,
-    borderColor: '#000000',
-    position: 'absolute',
-    top: 0,
-    left: 0,
-    right: 0,
-    bottom: 0,
-  },
-  container: {
-    flex: 1,
-    flexDirection: 'column'
-  },
-  outerScroll: {
-    flex: 1,
-    flexDirection: 'column'
-  },
-  row: {
-    flex: 1
-  },
-})
-
 
 class Render extends React.Component{
   constructor(props){
@@ -115,8 +51,6 @@ class Render extends React.Component{
       }),
     }
   }
-
-
 
   _animatedScroll(index, e){
     var threshold = width / 5;
@@ -213,5 +147,71 @@ class Render extends React.Component{
     )
   }
 }
+
+
+const styles = StyleSheet.create({
+  mainContainer: {
+    flex: 1,
+    marginTop: 64,
+    flexDirection: 'column',
+    justifyContent: 'center',
+    backgroundColor: '#48BBEC'
+  },
+  title: {
+    marginBottom: 20,
+    fontSize: 25,
+    textAlign: 'center',
+    color: '#fff'
+  },
+  searchInput: {
+    height: 50,
+    padding: 4,
+    marginRight: 5,
+    fontSize: 23,
+    borderWidth: 1,
+    borderColor: 'white',
+    borderRadius: 8,
+    color: 'white'
+  },
+  buttonText: {
+    fontSize: 18,
+    color: '#111',
+    alignSelf: 'center'
+  },
+  button: {
+    height: 45,
+    flexDirection: 'row',
+    backgroundColor: 'white',
+    borderColor: 'white',
+    borderWidth: 1,
+    borderRadius: 8,
+    marginBottom: 10,
+    marginTop: 10,
+    alignSelf: 'stretch',
+    justifyContent: 'center'
+  },
+  map: {
+    height: 300,
+    borderWidth: 1,
+    borderColor: '#000000',
+    position: 'absolute',
+    top: 0,
+    left: 0,
+    right: 0,
+    bottom: 0,
+  },
+  container: {
+    flex: 1,
+    flexDirection: 'column'
+  },
+  outerScroll: {
+    flex: 1,
+    flexDirection: 'column'
+  },
+  row: {
+    flex: 1
+  },
+})
+
 
 module.exports = Render;
