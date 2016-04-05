@@ -3,7 +3,10 @@ const Firebase = require('firebase')
 const Render = require('./Render')
 const WebView = require('./Helpers/WebView')
 const Animatable = require('react-native-animatable');
-
+const ScrollableTabView = require('react-native-scrollable-tab-view')
+const Shopping = require('./Shopping')
+const Sites = require('./Sites')
+const Tour = require('./Tour')
 
 var {
   Text,
@@ -74,6 +77,11 @@ class Res extends React.Component{
 
         <View style={{flex: .2}}>
         <Text style={styles.title}>Footer</Text>
+          <ScrollableTabView>
+            <Tour tabLabel="Tour" />
+            <Sites tabLabel="Sites" />
+            <Shopping tabLabel="Shopping" />
+          </ScrollableTabView>
         </View>
       </View>
     )

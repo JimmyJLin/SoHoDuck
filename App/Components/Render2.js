@@ -1,9 +1,5 @@
 const React = require('react-native');
-const MapView = require('react-native-maps')
-const Dimensions = require('Dimensions');
-const windowSize = Dimensions.get('window');
-const PriceMarkers = require('./ReactMaps/PriceMarkers')
-const CustomCallout = require('./ReactMaps/CustomCallout')
+// const Web_View = require('./Helpers/WebView')
 
 const {
   Text,
@@ -11,14 +7,13 @@ const {
   NavigatorIOS,
   Image,
   ScrollView,
+  MapView,
   TextInput,
   ListView,
   StyleSheet,
   TouchableHighlight
 } = React;
 
-const LATITUDE = 40.725435;
-const LONGITUDE = -74.002965;
 
 class Render extends React.Component{
   constructor(props){
@@ -34,14 +29,9 @@ class Render extends React.Component{
         latitude: 0,
         longitude: 0,
       },
-      markers: [
-        {
-        coordinate: {
-          latitude: LATITUDE,
-          longitude: LONGITUDE,
-          }
-        }
-      ],
+      dataSource: new ListView.DataSource({
+        rowHasChanged: (row1, row2) => row1 !== row2,
+      }),
     }
   }
 
@@ -51,34 +41,22 @@ class Render extends React.Component{
 
   render(){
     const objArr = Object.keys(this.props)
-    console.log(this.state.markers[0].coordinate)
+
     if (objArr[2] == 'resinfo'){
       return (
         <View style={styles.mainContainer}>
-          <View style={{flex: .6}}>
-
+          <View style={{flex: .8}}>
             <Text style={styles.title}>
             {this.props.resinfo.Name}
             </Text>
-
-            <MapView
-            style={styles.map}
-            showsUserLocation={true}
-            followUserLocation={true}>
-              <MapView.Marker
-              ref="m1"
-              coordinate={this.state.markers[0].coordinate}
-              zoom={13}
-              title="Blue Ribbon Sushi"/>
-            </MapView>
-
-        </View>
-        <View style={{flex: .4}}>
-          <Text style={styles.text}>Address: {this.props.resinfo.Address}</Text>
-          <Text style={styles.text}>Description: {this.props.resinfo.Description}</Text>
-          <Text style={styles.text}>Phone: {this.props.resinfo.Phone}</Text>
-          <Text style={styles.text}>Website: {this.props.resinfo.Website}</Text>
-        </View>
+            <Image
+            source={{uri: this.props.resinfo.Image}}
+            style={styles.detailsImage}/>
+            <Text style={styles.text}>Address: {this.props.resinfo.Address}</Text>
+            <Text style={styles.text}>Description: {this.props.resinfo.Description}</Text>
+            <Text style={styles.text}>Phone: {this.props.resinfo.Phone}</Text>
+            <Text style={styles.text}>Website: {this.props.resinfo.Website}</Text>
+          </View>
           <View style={{flex: .2}}>
             <Text style={styles.title}> Hello World! </Text>
           </View>
