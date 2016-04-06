@@ -88,11 +88,11 @@ Guided (SoHo) walking tour iOS App from a perspective of local - showcasing off 
 | :------------- | :------------- | :------------- |
 | March 30 (Wednesday) | React Native Mobile iOS App concept proofing & mockup       |        |
 | March 31 (Thursday) | iOS App Planning  |        |
-| April 1 (Friday) | iOS App Setup (Landing Page & Dashboard)  |        |
-| April 2 (Saturday) | Rest / Bar page  |        |
-| April 3 (Sunday) | Sites page  |       |
-| April 4 (Monday) | Shopping Page  |        |
-| April 5 (Tuesday) | Tour Page  |        |
+| April 1 (Friday) | iOS App Setup (Landing Page & Dashboard)  | completed with signup/login with firebase and added animation       |
+| April 2 (Saturday) | Rest / Bar page  | completed the page with seeded data ... still need to add animations & styling |
+| April 3 (Sunday) | Sites page  | completed the page with seeded data ... still need to add animations & styling  |
+| April 4 (Monday) | Shopping Page  |  completed the page with seeded data ... still need to add animations & styling |
+| April 5 (Tuesday) | Tour Page  | able to add map marker       |
 | April 6 (Wednesday) | Tour Page |        |
 | April 7 (Thursday) | Tour Page  |        |
 | April 8 (Friday) | Debugging / Deployment  |        |
