@@ -1,12 +1,7 @@
 const React = require('react-native');
 const Firebase = require('firebase')
 const Resrender = require('./Render/Resrender')
-const WebView = require('./Helpers/WebView')
 const Animatable = require('react-native-animatable');
-const ScrollableTabView = require('react-native-scrollable-tab-view')
-
-
-
 
 var {
   Text,
@@ -23,16 +18,7 @@ class Res extends React.Component{
   goToRender(index){
     this.props.navigator.push({
       component: Resrender,
-      title: 'Direction',
       passProps: {resinfo: resinfo[index]}
-    })
-  }
-
-  openPage(address){
-    this.props.navigator.push({
-      component: WebView,
-      title: 'Web View',
-      passProps: {address}
     })
   }
 

@@ -35,14 +35,12 @@ class Main extends React.Component{
   goToDashboard(){
     this.props.navigator.push({
       component: Dashboard,
-      title: 'Dashboard'
     })
   }
 
   goToSignup(){
     this.props.navigator.push({
       component: Signup,
-      title: 'Signup'
     })
   }
 
@@ -68,7 +66,6 @@ class Main extends React.Component{
       } else {
         this.props.navigator.resetTo({
           component: Dashboard,
-          title: 'Dashboard'
           })
         }
       }

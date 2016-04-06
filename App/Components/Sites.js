@@ -19,7 +19,6 @@ class Sites extends React.Component{
   goToRender(index){
     this.props.navigator.push({
       component: Sitesrender,
-      title: 'Direction',
       passProps: {siteinfo: siteinfo[index]}
     })
   }
@@ -77,7 +76,7 @@ class Sites extends React.Component{
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    marginTop: 65,
+    marginTop: 10,
     flexDirection: 'column',
     justifyContent: 'center',
     backgroundColor: '#48BBEC'
