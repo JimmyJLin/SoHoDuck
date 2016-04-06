@@ -2,8 +2,8 @@ const React = require('react-native');
 const MapView = require('react-native-maps')
 const Dimensions = require('Dimensions');
 const windowSize = Dimensions.get('window');
-const PriceMarkers = require('./ReactMaps/PriceMarkers')
-const CustomCallout = require('./ReactMaps/CustomCallout')
+const PriceMarkers = require('../ReactMaps/PriceMarkers')
+const CustomCallout = require('../ReactMaps/CustomCallout')
 
 const {
   Text,
@@ -17,10 +17,7 @@ const {
   TouchableHighlight
 } = React;
 
-// const LATITUDE = this.props.resinfo.Latitude
-// const LONGITUDE = this.props.resinfo.Longitude
-
-class Render extends React.Component{
+class Resrender extends React.Component{
   constructor(props){
     super(props);
 
@@ -41,7 +38,7 @@ class Render extends React.Component{
           latitude: this.props.resinfo.Latitude,
           longitude: this.props.resinfo.Longitude,
           }
-        },
+        }
       ],
     }
   }
@@ -51,10 +48,7 @@ class Render extends React.Component{
   }
 
   render(){
-
     const objArr = Object.keys(this.props)
-    console.log("line 55", this.state.markers[0].coordinate)
-    if (objArr[2] == 'resinfo'){
       return (
         <View style={styles.mainContainer}>
           <View style={{flex: .6}}>
@@ -86,73 +80,6 @@ class Render extends React.Component{
           </View>
         </View>
       )
-    } else if (objArr[2] == 'siteinfo') {
-      return (
-        <View style={styles.mainContainer}>
-          <View style={{flex: .4}}>
-
-            <Text style={styles.title}>
-            {this.props.siteinfo.Name}
-            </Text>
-
-            <MapView
-            style={styles.map}
-            hasCenterMarker={true}>
-              <MapView.Marker
-              ref="m1"
-              coordinate={this.state.markers[1].coordinate}
-              hasCenterMarker={true}
-              zoom={13}
-              title={this.props.siteinfo.Name}/>
-            </MapView>
-
-            <View style={{flex: .4}}>
-              <Text style={styles.text}>Address: {this.props.siteinfo.Address}</Text>
-              <Text style={styles.text}>Description: {this.props.siteinfo.Description}</Text>
-              <Text style={styles.text}>Phone: {this.props.siteinfo.Phone}</Text>
-              <Text style={styles.text}>Website: {this.props.siteinfo.Website}</Text>
-            </View>
-
-          </View>
-          <View style={{flex: .2}}>
-            <Text style={styles.title}> Hello World! </Text>
-          </View>
-        </View>
-      )
-    } else {
-      return (
-        <View style={styles.mainContainer}>
-          <View style={{flex: .4}}>
-
-            <Text style={styles.title}>
-            {this.props.shoppinginfo.Name}
-            </Text>
-
-            <MapView
-            style={styles.map}
-            hasCenterMarker={true}>
-              <MapView.Marker
-              ref="m1"
-              coordinate={this.state.markers[2].coordinate}
-              hasCenterMarker={true}
-              zoom={13}
-              title={this.props.shoppinginfo.Name}/>
-            </MapView>
-
-            <View style={{flex: .4}}>
-              <Text style={styles.text}>Address: {this.props.shoppinginfo.Address}</Text>
-              <Text style={styles.text}>Description: {this.props.shoppinginfo.Description}</Text>
-              <Text style={styles.text}>Phone: {this.props.shoppinginfo.Phone}</Text>
-              <Text style={styles.text}>Website: {this.props.shoppinginfo.Website}</Text>
-            </View>
-
-          </View>
-          <View style={{flex: .2}}>
-            <Text style={styles.title}> Hello World! </Text>
-          </View>
-        </View>
-      )
-    }
   }
 }
 
@@ -215,4 +142,4 @@ const styles = StyleSheet.create({
 })
 
 
-module.exports = Render;
+module.exports = Resrender;

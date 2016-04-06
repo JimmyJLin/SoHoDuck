@@ -46,7 +46,6 @@ class Dashboard extends React.Component{
   goToRes(){
     api.getRes()
       .then((res)=>{
-        console.log("dashboard res", res)
         this.props.navigator.push({
           component: Res,
           title: 'Resturant & Bar',
