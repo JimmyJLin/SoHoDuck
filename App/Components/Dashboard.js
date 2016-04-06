@@ -47,7 +47,6 @@ class Dashboard extends React.Component{
       .then((res)=>{
         this.props.navigator.push({
           component: Res,
-          title: 'Resturant & Bar',
           passProps: {resInfo: res}
         })
         this.setState({

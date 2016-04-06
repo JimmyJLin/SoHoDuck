@@ -59,6 +59,8 @@ class Resrender extends React.Component{
 
             <MapView
             style={styles.map}
+            showsUserLocation={true}
+            followUserLocation={true}
             hasCenterMarker={true}>
               <MapView.Marker
               ref="m1"
