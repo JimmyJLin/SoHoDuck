@@ -2,6 +2,7 @@ const React = require('react-native');
 const Firebase = require('firebase')
 const Resrender = require('./Render/Resrender')
 const Animatable = require('react-native-animatable');
+const Separator = require('./Helpers/Separator')
 
 var {
   Text,
@@ -39,6 +40,7 @@ class Res extends React.Component{
 
           <TouchableHighlight
             onPress={this.goToRender.bind(this, index)}
+            underlayColor="#88D4F5"
             style={styles.box}>
 
             <View style={styles.ListContainer}>
@@ -55,6 +57,7 @@ class Res extends React.Component{
           </TouchableHighlight>
 
         </Animatable.View>
+        <Separator />
 
         </View>
       )
@@ -63,6 +66,7 @@ class Res extends React.Component{
 
     return (
       <View style={styles.mainContainer}>
+
         <ScrollView style={{flex: .9}}  >
           {list}
         </ScrollView>
@@ -80,10 +84,9 @@ class Res extends React.Component{
 var styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    marginTop: 10,
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: '#48BBEC'
+    backgroundColor: '#F2F2F2'
   },
   title: {
     marginBottom: 20,
@@ -111,17 +114,8 @@ var styles = StyleSheet.create({
   },
   box: {
     height: 100,
-    marginBottom: 20,
     flexDirection: 'row',
     backgroundColor: '#ffffff',
-    borderRadius: 10,
-    shadowColor: "#000000",
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    shadowOffset: {
-      height: 3,
-      width: 2,
-    }
   },
   ListContainer: {
     padding: 10,
@@ -130,7 +124,6 @@ var styles = StyleSheet.create({
   TextContainer: {
     padding: 10,
     flexDirection: 'column',
-    textAlign: 'left',
   },
   imgContainer: {
       marginLeft: 15,
