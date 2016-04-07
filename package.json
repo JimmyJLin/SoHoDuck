@@ -13,6 +13,7 @@
     "react-native-animatable": "^0.5.2",
     "react-native-maps": "^0.3.1",
     "react-native-scrollable-tab-view": "^0.4.0",
+    "react-native-video": "^0.7.1",
     "watchman": "^0.1.8"
   }
 }

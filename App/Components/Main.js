@@ -5,6 +5,7 @@ const Dashboard = require('./Dashboard')
 const Signup = require('./Signup')
 const Firebase = require('firebase');
 const Animatable = require('react-native-animatable');
+const Video = require('react-native-video').default;
 
 const {
   AppRegistry,
@@ -162,6 +163,13 @@ const styles = StyleSheet.create({
       top: 0,
       width: windowSize.width,
       height: windowSize.height
+    },
+    backgroundVideo: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
     },
     header: {
       justifyContent: 'center',
