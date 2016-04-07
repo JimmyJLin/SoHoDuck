@@ -56,6 +56,7 @@ class Sites extends React.Component{
 
           <TouchableHighlight
             onPress={this.goToRender.bind(this, index)}
+            underlayColor="#88D4F5"
             style={styles.box}>
 
             <View style={styles.ListContainer}>
