@@ -19,7 +19,6 @@ class Sites extends React.Component{
   goToRender(index){
     this.props.navigator.push({
       component: Sitesrender,
-      title: 'Direction',
       passProps: {siteinfo: siteinfo[index]}
     })
   }
@@ -77,7 +76,7 @@ class Sites extends React.Component{
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    marginTop: 65,
+    marginTop: 10,
     flexDirection: 'column',
     justifyContent: 'center',
     backgroundColor: '#48BBEC'
@@ -147,7 +146,7 @@ const styles = StyleSheet.create({
 const siteinfo = [
 {Name: "St. Patrick's Old Cathedral", Address: "260-264 Mulbuerry Street, New York, NY 10012", Description: "The Basilica of Saint Patrick's Old Cathedral buildt between 1809 and 1815, it was the seat of the Roman Catholic Archdiocese of New York until the current Saint Patrick's Cathedral", Phone: "212-226-8075", Website: "www.oldcathedral.org.com", Image: "http://i68.tinypic.com/v3pv7q.jpg", Latitude: "40.723576", Longitude: "-73.995184"},
 {Name: "Rock & Roll Hall of Fame Annex", Address: "76 Mercer Street, New York, NY 10012", Description: "Rock & Roll Hall of Fame Annex", Phone: "212-966-5585", Website: "www.rockhall.com", Image: "http://i67.tinypic.com/2emgyn6.jpg", Latitude: "40.722651", Longitude: "-74.000108"},
-{Name: "New Museum", Address: "235 Bowery Stret, New York, NY 10012", Description: "The New Meseum is a leading destination for new art and new ideas", Phone: "212-219-1222", Website: "www.newmuseum.org", Image: "http://i63.tinypic.com/4sfolv.jpg", Latitude: "40.725435", Longitude: "-74.002965"},
+{Name: "New Museum", Address: "235 Bowery Stret, New York, NY 10012", Description: "The New Meseum is a leading destination for new art and new ideas", Phone: "212-219-1222", Website: "www.newmuseum.org", Image: "http://i63.tinypic.com/4sfolv.jpg", Latitude: "40.722329", Longitude: "-73.992901"},
 {Name: "E.V. Haughwout Building", Address: "Corner of Broome street and Brodway, New York, NY 10012", Description: "Buildt in 1857 by John P. Gaynor with cast-iron facades for two street-fronts, it origiinally housed Eder V. Haughwout's fashionable emporium.", Phone: "", Website: "https://en.wikipedia.org/wiki/E._V._Haughwout_Building", Image: "http://i63.tinypic.com/2rxh8d4.jpg", Latitude: "40.721803", Longitude: "-73.999485"}]
 
 module.exports = Sites;

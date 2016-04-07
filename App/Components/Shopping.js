@@ -17,7 +17,6 @@ class Shopping extends React.Component{
   goToRender(index){
     this.props.navigator.push({
       component: Shoppingrender,
-      title: 'Direction',
       passProps: {shoppinginfo: shoppinginfo[index]}
     })
   }
@@ -74,7 +73,7 @@ class Shopping extends React.Component{
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    marginTop: 65,
+    marginTop: 10,
     flexDirection: 'column',
     justifyContent: 'center',
     backgroundColor: '#48BBEC'
