@@ -1,6 +1,7 @@
 const React = require('react-native');
 const Shoppingrender = require('./Render/Shoppingrender')
 const Animatable = require('react-native-animatable');
+const Separator = require('./Helpers/Separator')
 
 const {
   Text,
@@ -33,6 +34,7 @@ class Shopping extends React.Component{
 
           <TouchableHighlight
             onPress={this.goToRender.bind(this, index)}
+            underlayColor="#88D4F5"
             style={styles.box}>
 
             <View style={styles.ListContainer}>
@@ -48,6 +50,7 @@ class Shopping extends React.Component{
           </TouchableHighlight>
 
         </Animatable.View>
+        <Separator />
 
         </View>
       )
@@ -57,7 +60,6 @@ class Shopping extends React.Component{
     return (
       <View style={styles.mainContainer}>
         <ScrollView style={{flex: .9}}  >
-          <Text style={styles.title}> Main </Text>
           {list}
         </ScrollView>
 
@@ -73,10 +75,9 @@ class Shopping extends React.Component{
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    marginTop: 10,
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: '#48BBEC'
+    backgroundColor: '#F2F2F2'
   },
   title: {
     marginBottom: 20,
@@ -84,59 +85,23 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#fff'
   },
-  searchInput: {
-    height: 50,
-    padding: 4,
-    marginRight: 5,
-    fontSize: 23,
-    borderWidth: 1,
-    borderColor: 'white',
-    borderRadius: 8,
-    color: 'white'
-  },
   buttonText: {
     fontSize: 18,
     color: '#111',
     alignSelf: 'center'
   },
-  button: {
-    height: 45,
-    flexDirection: 'row',
-    backgroundColor: 'white',
-    borderColor: 'white',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    marginTop: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  },
-  detailsImage: {
-    width: 134,
-    height: 200,
-    backgroundColor: '#eaeaea',
-    marginRight: 10,
-  },
   box: {
     height: 100,
-    marginBottom: 20,
     flexDirection: 'row',
     backgroundColor: '#ffffff',
-    borderRadius: 10,
-    shadowColor: "#000000",
-    shadowOpacity: 0.8,
-    shadowRadius: 2,
-    shadowOffset: {
-      height: 3,
-      width: 2,
-    }
   },
   ListContainer: {
       padding: 10,
-      borderWidth: 1,
       flexDirection: 'row',
-      borderBottomColor: '#CCC',
-      borderColor: 'transparent'
+  },
+  TextContainer: {
+    padding: 10,
+    flexDirection: 'column',
   },
   imgContainer: {
       marginLeft: 15,

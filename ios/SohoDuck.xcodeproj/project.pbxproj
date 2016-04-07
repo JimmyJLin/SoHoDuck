@@ -23,7 +23,6 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		C35989A21CB6999900567510 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C359899F1CB6994F00567510 /* libRCTVideo.a */; };
-		C35989A41CB69E0000567510 /* Clouds_5.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = C35989A31CB69E0000567510 /* Clouds_5.mp4 */; };
 		C3AE97BF1CB434BD007B6A64 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AE97B41CB43491007B6A64 /* libAirMaps.a */; };
 /* End PBXBuildFile section */
 
@@ -571,7 +570,6 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				C35989A41CB69E0000567510 /* Clouds_5.mp4 in Resources */,
 				13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */,
 				13B07FBD1A68108700A75B9A /* LaunchScreen.xib in Resources */,
 			);

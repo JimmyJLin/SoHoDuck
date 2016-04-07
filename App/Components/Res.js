@@ -100,18 +100,6 @@ var styles = StyleSheet.create({
     marginBottom: 10,
     flexDirection: 'row',
   },
-  button: {
-    height: 45,
-    flexDirection: 'row',
-    backgroundColor: 'white',
-    borderColor: 'white',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    marginTop: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  },
   box: {
     height: 100,
     flexDirection: 'row',
