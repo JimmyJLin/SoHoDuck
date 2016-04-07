@@ -14,6 +14,7 @@ const {
   Text,
   View,
   NavigatorIOS,
+  Navigator,
   Image,
   ScrollView,
   StyleSheet,
@@ -25,7 +26,7 @@ class Sites extends React.Component{
   constructor(props) {
     super(props)
     this.state={
-      page: 'third'
+      page: 'second'
     }
   }
 
@@ -120,7 +121,7 @@ class Sites extends React.Component{
     return (
       <View style={styles.mainContainer}>
 
-        <ScrollView style={{flex: .9}}  >
+        <ScrollView style={{flex: 8}}  >
           <SearchBar
           ref='searchBar'
           placeholder='Search'
@@ -129,22 +130,23 @@ class Sites extends React.Component{
         </ScrollView>
 
         <View style={{flex: .07}}>
+
         <View style={styles.container}>
          <Tabs selected={this.state.page}
           style={{backgroundColor:'white'}}
           selectedStyle={{color:'red'}} onSelect={el=>this.setState({page:el.props.name})}>
 
-           <Text name="first"
-           onPress={this.goToTour.bind(this)}
-           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Tour</Text>
+         <Text name="first"
+         onPress={this.goToTour.bind(this)}
+         selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Tour</Text>
 
-           <Text name="second"
-           onPress={this.goToRes.bind(this)}
-           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Restaurant</Text>
+         <Text name="second"
+         onPress={this.goToRes.bind(this)}
+         selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Restaurant</Text>
 
-           <Text name="fourth"
-           onPress={this.goToShopping.bind(this)}
-           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Shopping</Text>
+         <Text name="third"
+         onPress={this.goToShopping.bind(this)}
+         selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Shopping</Text>
           </Tabs>
         </View>
 
@@ -157,6 +159,7 @@ class Sites extends React.Component{
 
 const styles = StyleSheet.create({
   mainContainer: {
+    marginTop: 60,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',

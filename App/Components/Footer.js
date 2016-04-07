@@ -1,8 +1,8 @@
 const React = require('react-native');
 const Res = require('./Res')
-// const Shopping = require('./Shopping')
-// const Sites = require('./Sites')
-// const Tour = require('./Tour')
+const Shopping = require('./Shopping')
+const Sites = require('./Sites')
+const Tour = require('./Tour')
 const Tabs = require('react-native-tabs')
 
 var {

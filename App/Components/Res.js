@@ -15,6 +15,7 @@ var {
   Text,
   View,
   NavigatorIOS,
+  Navigator,
   Image,
   ScrollView,
   StyleSheet,
@@ -124,7 +125,7 @@ class Res extends React.Component{
     return (
       <View style={styles.mainContainer}>
 
-        <ScrollView style={{flex: .9}}  >
+        <ScrollView style={{flex: 8}}  >
           <SearchBar
           ref='searchBar'
           placeholder='Search'
@@ -133,6 +134,7 @@ class Res extends React.Component{
         </ScrollView>
 
         <View style={{flex: .07}}>
+
         <View style={styles.container}>
          <Tabs selected={this.state.page}
           style={{backgroundColor:'white'}}
@@ -142,11 +144,11 @@ class Res extends React.Component{
          onPress={this.goToTour.bind(this)}
          selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Tour</Text>
 
-         <Text name="third"
+         <Text name="second"
          onPress={this.goToSites.bind(this)}
          selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>POIs</Text>
 
-         <Text name="fourth"
+         <Text name="third"
          onPress={this.goToShopping.bind(this)}
          selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Shopping</Text>
           </Tabs>
@@ -161,6 +163,7 @@ class Res extends React.Component{
 
 var styles = StyleSheet.create({
   mainContainer: {
+    marginTop: 60,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
