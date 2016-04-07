@@ -4,6 +4,12 @@ const Resrender = require('./Render/Resrender')
 const Animatable = require('react-native-animatable');
 const Separator = require('./Helpers/Separator')
 const Swipeout = require('react-native-swipeout')
+const SearchBar = require('react-native-search-bar')
+// const Footer = require('./Footer')
+const Tabs = require('react-native-tabs')
+const Shopping = require('./Shopping')
+const Sites = require('./Sites')
+const Tour = require('./Tour')
 
 var {
   Text,
@@ -16,12 +22,40 @@ var {
 } = React;
 
 
-
 class Res extends React.Component{
+  constructor(props) {
+    super(props)
+    this.state={
+      page: 'second'
+    }
+  }
+
   goToRender(index){
     this.props.navigator.push({
       component: Resrender,
       passProps: {resinfo: resinfo[index]}
+    })
+  }
+
+  handleSearch(){
+
+  }
+
+  goToTour(){
+    this.props.navigator.push({
+      component: Tour,
+    })
+  }
+
+  goToSites(){
+    this.props.navigator.push({
+      component: Sites,
+    })
+  }
+
+  goToShopping(){
+    this.props.navigator.push({
+      component: Shopping,
     })
   }
 
@@ -91,13 +125,32 @@ class Res extends React.Component{
       <View style={styles.mainContainer}>
 
         <ScrollView style={{flex: .9}}  >
-
+          <SearchBar
+          ref='searchBar'
+          placeholder='Search'
+          onSearchButtonPress={this.handleSearch.bind(this)}/>
           {list}
         </ScrollView>
 
-        <View style={{flex: .1}}>
+        <View style={{flex: .07}}>
+        <View style={styles.container}>
+         <Tabs selected={this.state.page}
+          style={{backgroundColor:'white'}}
+          selectedStyle={{color:'red'}} onSelect={el=>this.setState({page:el.props.name})}>
 
-        <Text style={styles.title}>Footer</Text>
+         <Text name="first"
+         onPress={this.goToTour.bind(this)}
+         selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Tour</Text>
+
+         <Text name="third"
+         onPress={this.goToSites.bind(this)}
+         selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>POIs</Text>
+
+         <Text name="fourth"
+         onPress={this.goToShopping.bind(this)}
+         selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Shopping</Text>
+          </Tabs>
+        </View>
 
         </View>
       </View>

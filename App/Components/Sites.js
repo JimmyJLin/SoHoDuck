@@ -3,7 +3,12 @@ const Sitesrender = require('./Render/Sitesrender')
 const Animatable = require('react-native-animatable');
 const Separator = require('./Helpers/Separator')
 const Swipeout = require('react-native-swipeout')
-
+const SearchBar = require('react-native-search-bar')
+// const Footer = require('./Footer')
+const Tabs = require('react-native-tabs')
+const Shopping = require('./Shopping')
+const Res = require('./Res')
+const Tour = require('./Tour')
 
 const {
   Text,
@@ -16,8 +21,14 @@ const {
 } = React;
 
 
-
 class Sites extends React.Component{
+  constructor(props) {
+    super(props)
+    this.state={
+      page: 'third'
+    }
+  }
+
   goToRender(index){
     this.props.navigator.push({
       component: Sitesrender,
@@ -25,8 +36,29 @@ class Sites extends React.Component{
     })
   }
 
-  render(){
+  handleSearch(){
 
+  }
+
+  goToTour(){
+    this.props.navigator.push({
+      component: Tour,
+    })
+  }
+
+  goToRes(){
+    this.props.navigator.push({
+      component: Res,
+    })
+  }
+
+  goToShopping(){
+    this.props.navigator.push({
+      component: Shopping,
+    })
+  }
+
+  render(){
 
     const list = siteinfo.map((item, index) => {
 
@@ -87,12 +119,35 @@ class Sites extends React.Component{
 
     return (
       <View style={styles.mainContainer}>
+
         <ScrollView style={{flex: .9}}  >
+          <SearchBar
+          ref='searchBar'
+          placeholder='Search'
+          onSearchButtonPress={this.handleSearch.bind(this)}/>
           {list}
         </ScrollView>
 
-        <View style={{flex: .1}}>
-        <Text style={styles.title}>Footer</Text>
+        <View style={{flex: .07}}>
+        <View style={styles.container}>
+         <Tabs selected={this.state.page}
+          style={{backgroundColor:'white'}}
+          selectedStyle={{color:'red'}} onSelect={el=>this.setState({page:el.props.name})}>
+
+           <Text name="first"
+           onPress={this.goToTour.bind(this)}
+           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Tour</Text>
+
+           <Text name="second"
+           onPress={this.goToRes.bind(this)}
+           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Restaurant</Text>
+
+           <Text name="fourth"
+           onPress={this.goToShopping.bind(this)}
+           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Shopping</Text>
+          </Tabs>
+        </View>
+
         </View>
       </View>
     )
