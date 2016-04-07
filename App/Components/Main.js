@@ -5,7 +5,6 @@ const Dashboard = require('./Dashboard')
 const Signup = require('./Signup')
 const Firebase = require('firebase');
 const Animatable = require('react-native-animatable');
-const Video = require('react-native-video').default;
 
 const {
   AppRegistry,
