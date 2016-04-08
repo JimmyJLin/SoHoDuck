@@ -131,34 +131,6 @@ class Shopping extends React.Component{
     return (
       <View style={styles.mainContainer}>
 
-        <View style={{flex: .07}}>
-
-          <View style={styles.container}>
-           <Tabs selected={this.state.page}
-            style={{backgroundColor:'white'}}
-            selectedStyle={{color:'red'}} onSelect={el=>this.setState({page:el.props.name})}>
-
-           <Text name="first"
-           onPress={this.goToTour.bind(this)}
-           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Tour</Text>
-
-           <Text name="second"
-           onPress={this.goToRes.bind(this)}
-           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Restaurant</Text>
-
-           <Text name="third"
-           onPress={this.goToSites.bind(this)}
-           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>POIs</Text>
-
-           <Text name="fourth"
-           onPress={this.goToShopping.bind(this)}
-           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Shopping</Text>
-
-            </Tabs>
-          </View>
-
-        </View>
-
         <ScrollView style={styles.scrollContainer}  >
           <SearchBar
           ref='searchBar'
@@ -167,6 +139,9 @@ class Shopping extends React.Component{
           {list}
         </ScrollView>
 
+        <View style={{flex: .07}}>
+
+        </View>
 
       </View>
     )
@@ -236,8 +211,8 @@ const styles = StyleSheet.create({
     overflow: 'hidden',
   },
   scrollContainer: {
-    flex: 1,
-    marginTop: -40,
+    flex: .9,
+    marginTop: -90,
   }
 })
 
@@ -246,6 +221,6 @@ const shoppinginfo = [
   {Name: "Pearl River Mart", Address: "17 Cleveland Place, New York, NY 10012", Description: "Eclectic emporium with 3-floors of Chinese apparel, accessories, housewares & furniture", Phone: "800-878-2446", Website: "www.pearlriver.com", Image: "http://i65.tinypic.com/dgqibs.jpg", Maps: "http://i67.tinypic.com/5bitk.jpg", Type: 'Suvenior',  Latitude: "40.721542", Longitude: "-74.000468", Popular: "Dragon Boat"},
   {Name: "Topshop", Address: "478 Broadway, New York, NY 10012", Description: "Topshop is a British multinatioal fashion retailer of clothing, shoes, make-up and accessories - of which some 300 are in the UK", Phone: "866-853-8559", Website: "us.topshop.com", Image: "http://i67.tinypic.com/w2f380.jpg", Maps: "http://i67.tinypic.com/5bitk.jpg", Type: 'UK Design',  Latitude: "40.721398", Longitude: "-73.999888", Popular: "European Look"},
   {Name: "Prada", Address: "575 Broadway, New York, NY 10012", Description: "Retailer of upscale apparel, handbags, fragrances & more from the Italian designer", Phone: "212-334-8888", Website: "www.prada.com", Image: "http://i64.tinypic.com/3339xyu.jpg", Maps: "http://i67.tinypic.com/5bitk.jpg", Type: 'Luxury Bag', Latitude: "40.724450", Longitude: "-73.997868", Popular: "Prada"},
-  {Name: "Prada", Address: "575 Broadway, New York, NY 10012", Description: "Retailer of upscale apparel, handbags, fragrances & more from the Italian designer", Phone: "212-334-8888", Website: "www.prada.com", Image: "http://i64.tinypic.com/3339xyu.jpg", Maps: "http://i67.tinypic.com/5bitk.jpg", Type: 'Luxury Bag', Latitude: "40.724450", Longitude: "-73.997868", Popular: "Prada"}]
+  {Name: "Bloomingdale's", Address: "504 Broadway, New York, NY 10012", Description: "Upscale department store for apparel, accessories & cosmetics.", Phone: "212-729-5900", Website: "locations.bloomingdale.com/soho", Image: "http://i67.tinypic.com/2jwit5.jpg", Maps: "http://i68.tinypic.com/2cik9vn.jpg", Type: 'Upscale Department Store', Latitude: "40.724450", Longitude: "-73.997868", Popular: "Apparel"}]
 
 module.exports = Shopping;

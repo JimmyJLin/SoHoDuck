@@ -127,33 +127,6 @@ class Sites extends React.Component{
     return (
       <View style={styles.mainContainer}>
 
-        <View style={{flex: .07}}>
-
-          <View style={styles.container}>
-           <Tabs selected={this.state.page}
-            style={{backgroundColor:'white'}}
-            selectedStyle={{color:'red'}} onSelect={el=>this.setState({page:el.props.name})}>
-
-           <Text name="first"
-           onPress={this.goToTour.bind(this)}
-           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Tour</Text>
-
-           <Text name="second"
-           onPress={this.goToRes.bind(this)}
-           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Restaurant</Text>
-
-           <Text name="third"
-           onPress={this.goToSites.bind(this)}
-           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>POIs</Text>
-
-           <Text name="fourth"
-           onPress={this.goToShopping.bind(this)}
-           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Shopping</Text>
-            </Tabs>
-          </View>
-
-        </View>
-
         <ScrollView style={styles.scrollContainer}  >
           <SearchBar
           ref='searchBar'
@@ -162,6 +135,9 @@ class Sites extends React.Component{
           {list}
         </ScrollView>
 
+        <View style={{flex: .07}}>
+
+        </View>
 
       </View>
     )
@@ -171,7 +147,7 @@ class Sites extends React.Component{
 
 const styles = StyleSheet.create({
   mainContainer: {
-    marginTop: 90,
+    marginTop: 40,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
@@ -241,6 +217,6 @@ const siteinfo = [
 {Name: "Rock & Roll Hall of Fame Annex", Address: "76 Mercer Street, New York, NY 10012", Description: "Rock & Roll Hall of Fame Annex", Phone: "212-966-5585", Website: "www.rockhall.com", Image: "http://i67.tinypic.com/2emgyn6.jpg", Maps: "http://i67.tinypic.com/5bitk.jpg", Type: 'Museum', Latitude: "40.722651", Longitude: "-74.000108", Popular: "Rock & Roll"},
 {Name: "New Museum", Address: "235 Bowery Stret, New York, NY 10012", Description: "The New Meseum is a leading destination for new art and new ideas", Phone: "212-219-1222", Website: "www.newmuseum.org", Image: "http://i63.tinypic.com/4sfolv.jpg", Maps: "http://i67.tinypic.com/5bitk.jpg", Type: 'Museum',  Latitude: "40.722329", Longitude: "-73.992901", Popular: "New Museum"},
 {Name: "E.V. Haughwout Building", Address: "Corner of Broome street and Brodway, New York, NY 10012", Description: "Buildt in 1857 by John P. Gaynor with cast-iron facades for two street-fronts, it origiinally housed Eder V. Haughwout's fashionable emporium.", Phone: "", Website: "https://en.wikipedia.org/wiki/E._V._Haughwout_Building", Maps: "http://i67.tinypic.com/5bitk.jpg", Image: "http://i63.tinypic.com/2rxh8d4.jpg",  Type: 'Building', Latitude: "40.721803", Longitude: "-73.999485", Popular: "Typical SoHo Building"},
-{Name: "E.V. Haughwout Building", Address: "Corner of Broome street and Brodway, New York, NY 10012", Description: "Buildt in 1857 by John P. Gaynor with cast-iron facades for two street-fronts, it origiinally housed Eder V. Haughwout's fashionable emporium.", Phone: "", Website: "https://en.wikipedia.org/wiki/E._V._Haughwout_Building", Maps: "http://i67.tinypic.com/5bitk.jpg", Image: "http://i63.tinypic.com/2rxh8d4.jpg",  Type: 'Building', Latitude: "40.721803", Longitude: "-73.999485", Popular: "Typical SoHo Building"}]
+{Name: "West Broadway Gallaries", Address: "West Broadway & Prince, New York, NY 10012", Description: "Duck into an art space that is hidden in plain sight, and having your consciousness altered without spending any money at all, SoHo is a great place to see art", Phone: "", Website: "", Maps: "http://i63.tinypic.com/kapf1l.jpg", Image: "http://i65.tinypic.com/egaiwj.jpg",  Type: 'Gallaries', Latitude: "40.725789", Longitude: "-74.000918", Popular: "Gallaries"}]
 
 module.exports = Sites;

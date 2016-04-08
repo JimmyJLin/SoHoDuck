@@ -11,28 +11,18 @@ const {
   View
 } = React;
 
-// <NavigatorIOS
-// style={styles.container}
-// initialRoute={{
-//   title: 'SoHo Duck',
-//   component: Main,
-// }} />
+
 
 class SohoDuck extends Component {
   render() {
     return (
-      <Navigator
-        initialRoute={{ name: 'SoHo Duck', component: Main }}
-        configureScene={(route) => ({
-          ...Navigator.SceneConfigs.HorizontalSwipeJump
-
-        })}
-        renderScene={(route, navigator) => {
-          if (route.component) {
-            return <route.component navigator={navigator} {...route.passProps} />;
-          }
-        }}
-      />
+      
+      <NavigatorIOS
+      style={styles.container}
+      initialRoute={{
+        title: 'SoHo Duck',
+        component: Main,
+      }} />
 
     );
   }

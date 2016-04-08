@@ -130,32 +130,6 @@ class Res extends React.Component{
 
     return (
       <View style={styles.mainContainer}>
-      <View style={{flex: .07}}>
-
-        <View style={styles.container}>
-         <Tabs selected={this.state.page}
-          style={{backgroundColor:'white'}}
-          selectedStyle={{color:'red'}} onSelect={el=>this.setState({page:el.props.name})}>
-
-         <Text name="first"
-         onPress={this.goToTour.bind(this)}
-         selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Tour</Text>
-
-         <Text name="second"
-         onPress={this.goToRes.bind(this)}
-         selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Restaurant</Text>
-
-         <Text name="third"
-         onPress={this.goToSites.bind(this)}
-         selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>POIs</Text>
-
-         <Text name="fourth"
-         onPress={this.goToShopping.bind(this)}
-         selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Shopping</Text>
-          </Tabs>
-        </View>
-
-      </View>
 
         <ScrollView style={styles.scrollContainer}  >
           <SearchBar
@@ -165,6 +139,11 @@ class Res extends React.Component{
           {list}
         </ScrollView>
 
+        <View style={{flex: .07}}>
+
+
+        </View>
+
       </View>
     )
   }
@@ -173,7 +152,7 @@ class Res extends React.Component{
 
 var styles = StyleSheet.create({
   mainContainer: {
-    marginTop: 90,
+    marginTop: 110,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
@@ -233,8 +212,8 @@ var styles = StyleSheet.create({
     overflow: 'hidden',
   },
   scrollContainer: {
-    flex: 1,
-    marginTop: -40,
+    flex: .9,
+    marginTop: -110,
   }
 })
 
@@ -243,6 +222,6 @@ var resinfo = [
   {Name: "Eileen Special Cheesecake", Address: "17 Cleveland Place, New York, NY 10012", Description: "Cheesecake", Phone: "212-966-5585", Website: "www.eileenscheesecake.com", Image: "http://i64.tinypic.com/55nlvn.jpg", Maps: "http://i65.tinypic.com/fa3ktc.jpg", Type: 'Cheesecake', Latitude: "40.721526", Longitude: "-73.997226", Popular: "Oreo Cookie Cheesecake"},
   {Name: "Pomodoro", Address: "51 Spring Street, New York, NY 10012", Description: "Pizza", Phone: "212-966-9229", Website: "www.thevodkaslice.com", Image: "http://i67.tinypic.com/28s087n.jpg", Maps: "http://i64.tinypic.com/2yvkjkm.jpg", Type: 'Pizza', Latitude: "40.722087", Longitude: "-73.996344", Popular: "Penne Voka"},
   {Name: "Rice to Riches", Address: "37 Spring Street, New York, NY 10012", Description: "Desert", Phone: "212-274-0008", Website: "www.ricetoriches.com", Image: "http://i67.tinypic.com/hrwrj6.jpg", Maps: "http://i65.tinypic.com/o6fllv.jpg", Type: 'Rice Pudding', Latitude: "40.721891", Longitude: "-73.995766", Popular: "Rock & Roll"},
-  {Name: "Rice to Riches", Address: "37 Spring Street, New York, NY 10012", Description: "Desert", Phone: "212-274-0008", Website: "www.ricetoriches.com", Image: "http://i67.tinypic.com/hrwrj6.jpg", Maps: "http://i65.tinypic.com/o6fllv.jpg", Type: 'Rice Pudding', Latitude: "40.721891", Longitude: "-73.995766", Popular: "Rock & Roll"}]
+  {Name: "Bareburger", Address: "153 8th Avenue, New York, NY 10011", Description: "Casual, eco-minded regional chain for organic burgers (from beef to bison) & more, plus beer & wine", Phone: "212-414-2273", Website: "www.bareburger.com", Image: "http://i67.tinypic.com/2m4bm08.jpg", Maps: "http://i67.tinypic.com/292ppts.jpg", Type: 'Burger', Latitude: "40.728490", Longitude: "-73.998625", Popular: "Organic Burger"}]
 
 module.exports = Res;
