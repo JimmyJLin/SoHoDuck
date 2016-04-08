@@ -23,6 +23,7 @@
 		146834051AC3E58100842450 /* libReact.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 146834041AC3E56700842450 /* libReact.a */; };
 		832341BD1AAA6AB300B99B32 /* libRCTText.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 832341B51AAA6A8300B99B32 /* libRCTText.a */; };
 		C35989A21CB6999900567510 /* libRCTVideo.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C359899F1CB6994F00567510 /* libRCTVideo.a */; };
+		C35989CF1CB6D40100567510 /* libRNSearchBar.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C35989CE1CB6D3F500567510 /* libRNSearchBar.a */; };
 		C3AE97BF1CB434BD007B6A64 /* libAirMaps.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C3AE97B41CB43491007B6A64 /* libAirMaps.a */; };
 /* End PBXBuildFile section */
 
@@ -111,6 +112,13 @@
 			remoteGlobalIDString = 134814201AA4EA6300B7C361;
 			remoteInfo = RCTVideo;
 		};
+		C35989CD1CB6D3F500567510 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = C35989BD1CB6D3F500567510 /* RNSearchBar.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = 134814201AA4EA6300B7C361;
+			remoteInfo = RNSearchBar;
+		};
 		C3AE97B31CB43491007B6A64 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = C3AE97AF1CB43491007B6A64 /* AirMaps.xcodeproj */;
@@ -143,6 +151,7 @@
 		78C398B01ACF4ADC00677621 /* RCTLinking.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTLinking.xcodeproj; path = "../node_modules/react-native/Libraries/LinkingIOS/RCTLinking.xcodeproj"; sourceTree = "<group>"; };
 		832341B01AAA6A8300B99B32 /* RCTText.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTText.xcodeproj; path = "../node_modules/react-native/Libraries/Text/RCTText.xcodeproj"; sourceTree = "<group>"; };
 		C35989911CB6994F00567510 /* RCTVideo.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RCTVideo.xcodeproj; path = "../node_modules/react-native-video/RCTVideo.xcodeproj"; sourceTree = "<group>"; };
+		C35989BD1CB6D3F500567510 /* RNSearchBar.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = RNSearchBar.xcodeproj; path = "../node_modules/react-native-search-bar/RNSearchBar.xcodeproj"; sourceTree = "<group>"; };
 		C3AE97AF1CB43491007B6A64 /* AirMaps.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = AirMaps.xcodeproj; path = "../node_modules/react-native-maps/ios/AirMaps.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -158,6 +167,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				C35989CF1CB6D40100567510 /* libRNSearchBar.a in Frameworks */,
 				C35989A21CB6999900567510 /* libRCTVideo.a in Frameworks */,
 				C3AE97BF1CB434BD007B6A64 /* libAirMaps.a in Frameworks */,
 				146834051AC3E58100842450 /* libReact.a in Frameworks */,
@@ -282,6 +292,7 @@
 		832341AE1AAA6A7D00B99B32 /* Libraries */ = {
 			isa = PBXGroup;
 			children = (
+				C35989BD1CB6D3F500567510 /* RNSearchBar.xcodeproj */,
 				C35989911CB6994F00567510 /* RCTVideo.xcodeproj */,
 				C3AE97AF1CB43491007B6A64 /* AirMaps.xcodeproj */,
 				146833FF1AC3E56700842450 /* React.xcodeproj */,
@@ -331,6 +342,14 @@
 			isa = PBXGroup;
 			children = (
 				C359899F1CB6994F00567510 /* libRCTVideo.a */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		C35989BE1CB6D3F500567510 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				C35989CE1CB6D3F500567510 /* libRNSearchBar.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -460,6 +479,10 @@
 					ProductGroup = 146834001AC3E56700842450 /* Products */;
 					ProjectRef = 146833FF1AC3E56700842450 /* React.xcodeproj */;
 				},
+				{
+					ProductGroup = C35989BE1CB6D3F500567510 /* Products */;
+					ProjectRef = C35989BD1CB6D3F500567510 /* RNSearchBar.xcodeproj */;
+				},
 			);
 			projectRoot = "";
 			targets = (
@@ -545,6 +568,13 @@
 			fileType = archive.ar;
 			path = libRCTVideo.a;
 			remoteRef = C359899E1CB6994F00567510 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		C35989CE1CB6D3F500567510 /* libRNSearchBar.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libRNSearchBar.a;
+			remoteRef = C35989CD1CB6D3F500567510 /* PBXContainerItemProxy */;
 			sourceTree = BUILT_PRODUCTS_DIR;
 		};
 		C3AE97B41CB43491007B6A64 /* libAirMaps.a */ = {

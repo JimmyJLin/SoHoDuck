@@ -3,12 +3,18 @@ const Sitesrender = require('./Render/Sitesrender')
 const Animatable = require('react-native-animatable');
 const Separator = require('./Helpers/Separator')
 const Swipeout = require('react-native-swipeout')
-
+const SearchBar = require('react-native-search-bar')
+// const Footer = require('./Footer')
+const Tabs = require('react-native-tabs')
+const Shopping = require('./Shopping')
+const Res = require('./Res')
+const Tour = require('./Tour')
 
 const {
   Text,
   View,
   NavigatorIOS,
+  Navigator,
   Image,
   ScrollView,
   StyleSheet,
@@ -16,8 +22,14 @@ const {
 } = React;
 
 
-
 class Sites extends React.Component{
+  constructor(props) {
+    super(props)
+    this.state={
+      page: 'third'
+    }
+  }
+
   goToRender(index){
     this.props.navigator.push({
       component: Sitesrender,
@@ -25,8 +37,35 @@ class Sites extends React.Component{
     })
   }
 
-  render(){
+  handleSearch(){
 
+  }
+
+  goToTour(){
+    this.props.navigator.push({
+      component: Tour,
+    })
+  }
+
+  goToRes(){
+    this.props.navigator.push({
+      component: Res,
+    })
+  }
+
+  goToSites(){
+    this.props.navigator.push({
+      component: Sites,
+    })
+  }
+
+  goToShopping(){
+    this.props.navigator.push({
+      component: Shopping,
+    })
+  }
+
+  render(){
 
     const list = siteinfo.map((item, index) => {
 
@@ -87,13 +126,19 @@ class Sites extends React.Component{
 
     return (
       <View style={styles.mainContainer}>
-        <ScrollView style={{flex: .9}}  >
+
+        <ScrollView style={styles.scrollContainer}  >
+          <SearchBar
+          ref='searchBar'
+          placeholder='Search'
+          onSearchButtonPress={this.handleSearch.bind(this)}/>
           {list}
         </ScrollView>
 
-        <View style={{flex: .1}}>
-        <Text style={styles.title}>Footer</Text>
+        <View style={{flex: .07}}>
+
         </View>
+
       </View>
     )
   }
@@ -102,6 +147,7 @@ class Sites extends React.Component{
 
 const styles = StyleSheet.create({
   mainContainer: {
+    marginTop: 40,
     flex: 1,
     flexDirection: 'column',
     justifyContent: 'center',
@@ -160,12 +206,17 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     overflow: 'hidden',
   },
+  scrollContainer: {
+    flex: 1,
+    marginTop: -40,
+  }
 })
 
 const siteinfo = [
 {Name: "St. Patrick's Old Cathedral", Address: "260-264 Mulbuerry Street, New York, NY 10012", Description: "The Basilica of Saint Patrick's Old Cathedral buildt between 1809 and 1815, it was the seat of the Roman Catholic Archdiocese of New York until the current Saint Patrick's Cathedral", Phone: "212-226-8075", Website: "www.oldcathedral.org.com", Image: "http://i68.tinypic.com/v3pv7q.jpg", Maps: "http://i67.tinypic.com/5bitk.jpg", Type: 'Cathedral',  Latitude: "40.723576", Longitude: "-73.995184", Popular: "Old St. Patrick's Cathedral"},
 {Name: "Rock & Roll Hall of Fame Annex", Address: "76 Mercer Street, New York, NY 10012", Description: "Rock & Roll Hall of Fame Annex", Phone: "212-966-5585", Website: "www.rockhall.com", Image: "http://i67.tinypic.com/2emgyn6.jpg", Maps: "http://i67.tinypic.com/5bitk.jpg", Type: 'Museum', Latitude: "40.722651", Longitude: "-74.000108", Popular: "Rock & Roll"},
 {Name: "New Museum", Address: "235 Bowery Stret, New York, NY 10012", Description: "The New Meseum is a leading destination for new art and new ideas", Phone: "212-219-1222", Website: "www.newmuseum.org", Image: "http://i63.tinypic.com/4sfolv.jpg", Maps: "http://i67.tinypic.com/5bitk.jpg", Type: 'Museum',  Latitude: "40.722329", Longitude: "-73.992901", Popular: "New Museum"},
-{Name: "E.V. Haughwout Building", Address: "Corner of Broome street and Brodway, New York, NY 10012", Description: "Buildt in 1857 by John P. Gaynor with cast-iron facades for two street-fronts, it origiinally housed Eder V. Haughwout's fashionable emporium.", Phone: "", Website: "https://en.wikipedia.org/wiki/E._V._Haughwout_Building", Maps: "http://i67.tinypic.com/5bitk.jpg", Image: "http://i63.tinypic.com/2rxh8d4.jpg",  Type: 'Building', Latitude: "40.721803", Longitude: "-73.999485", Popular: "Typical SoHo Building"}]
+{Name: "E.V. Haughwout Building", Address: "Corner of Broome street and Brodway, New York, NY 10012", Description: "Buildt in 1857 by John P. Gaynor with cast-iron facades for two street-fronts, it origiinally housed Eder V. Haughwout's fashionable emporium.", Phone: "", Website: "https://en.wikipedia.org/wiki/E._V._Haughwout_Building", Maps: "http://i67.tinypic.com/5bitk.jpg", Image: "http://i63.tinypic.com/2rxh8d4.jpg",  Type: 'Building', Latitude: "40.721803", Longitude: "-73.999485", Popular: "Typical SoHo Building"},
+{Name: "West Broadway Gallaries", Address: "West Broadway & Prince, New York, NY 10012", Description: "Duck into an art space that is hidden in plain sight, and having your consciousness altered without spending any money at all, SoHo is a great place to see art", Phone: "", Website: "", Maps: "http://i63.tinypic.com/kapf1l.jpg", Image: "http://i65.tinypic.com/egaiwj.jpg",  Type: 'Gallaries', Latitude: "40.725789", Longitude: "-74.000918", Popular: "Gallaries"}]
 
 module.exports = Sites;

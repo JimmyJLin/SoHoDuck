@@ -17,6 +17,7 @@ const {
 
 
 class Dashboard extends React.Component{
+
   makeBackground(btn){
   var obj = {
     flexDirection: 'row',
@@ -69,6 +70,7 @@ class Dashboard extends React.Component{
   }
 
   render(){
+
     return (
       <View style={styles.container}>
 
@@ -83,7 +85,7 @@ class Dashboard extends React.Component{
 
             <Image style={styles.backdrop}
             source={require('./img/Main/soho.jpg')}>
-              <Text style={styles.headline}> WALKING TOUR</Text>
+              <Text style={styles.headline}> MAP</Text>
             </Image>
           </View>
 
