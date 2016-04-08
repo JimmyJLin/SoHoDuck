@@ -6,7 +6,9 @@ const Dimensions = require('Dimensions');
 const windowSize = Dimensions.get('window');
 const MapView = require('react-native-maps')
 const Tabs = require('react-native-tabs')
-
+const Shopping = require('./Shopping')
+const Sites = require('./Sites')
+const Res = require('./Res')
 
 const {
   Text,
@@ -115,9 +117,61 @@ class Tour extends React.Component{
     }
   }
 
+  goToTour(){
+    this.props.navigator.push({
+      component: Tour,
+    })
+  }
+
+  goToRes(){
+    this.props.navigator.push({
+      component: Res,
+    })
+  }
+
+  goToSites(){
+    this.props.navigator.push({
+      component: Sites,
+    })
+  }
+
+  goToShopping(){
+    this.props.navigator.push({
+      component: Shopping,
+    })
+  }
+
   render(){
     return (
       <View style={styles.mainContainer}>
+
+        <View style={{flex: .08}}>
+
+          <View style={styles.container}>
+           <Tabs selected={this.state.page}
+            style={{backgroundColor:'white'}}
+            selectedStyle={{color:'red'}} onSelect={el=>this.setState({page:el.props.name})}>
+
+           <Text name="first"
+           onPress={this.goToTour.bind(this)}
+           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Tour</Text>
+
+           <Text name="second"
+           onPress={this.goToRes.bind(this)}
+           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Restaurant</Text>
+
+           <Text name="third"
+           onPress={this.goToSites.bind(this)}
+           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>POIs</Text>
+
+           <Text name="fourth"
+           onPress={this.goToShopping.bind(this)}
+           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Shopping</Text>
+            </Tabs>
+          </View>
+
+        </View>
+
         <View style={{flex: .9}}>
         <MapView
           style={styles.map}>
@@ -216,9 +270,7 @@ class Tour extends React.Component{
 
         </View>
 
-        <View style={{flex: .08}}>
-        <Footer/>
-        </View>
+
       </View>
     )
   }
@@ -235,7 +287,7 @@ const regionText = {
 const styles = StyleSheet.create({
   mainContainer: {
     flex: 1,
-    marginTop: 65,
+    marginTop: 90,
     flexDirection: 'column',
     justifyContent: 'center',
     backgroundColor: '#48BBEC'
@@ -274,7 +326,8 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   map: {
-    height: 552,
+    height: 577,
+    marginTop: -47,
     borderWidth: 1,
     borderColor: '#000000',
   },

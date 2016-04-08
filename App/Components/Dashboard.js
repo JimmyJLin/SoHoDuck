@@ -17,6 +17,7 @@ const {
 
 
 class Dashboard extends React.Component{
+
   makeBackground(btn){
   var obj = {
     flexDirection: 'row',
@@ -69,6 +70,7 @@ class Dashboard extends React.Component{
   }
 
   render(){
+
     return (
       <View style={styles.container}>
 

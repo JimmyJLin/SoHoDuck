@@ -29,30 +29,31 @@ class Footer extends React.Component {
   }
 
   goToTour(){
-    this.props.navigator.push({
-      component: Tour,
-    })
+    // this.props.navigator.push({
+    //   component: Tour,
+    // })
   }
 
   goToRes(){
-    this.props.navigator.push({
-      component: Res,
-    })
+    // this.props.navigator.push({
+    //   component: Res,
+    // })
   }
 
   goToSites(){
-    this.props.navigator.push({
-      component: Sites,
-    })
+    // this.props.navigator.push({
+    //   component: Sites,
+    // })
   }
 
   goToShopping(){
-    this.props.navigator.push({
-      component: Shopping,
-    })
+    // this.props.navigator.push({
+    //   component: Shopping,
+    // })
   }
 
   render(){
+
     return (
       <View style={styles.container}>
        <Tabs selected={this.state.page} style={{backgroundColor:'white'}}
