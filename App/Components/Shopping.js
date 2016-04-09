@@ -139,10 +139,6 @@ class Shopping extends React.Component{
           {list}
         </ScrollView>
 
-        <View style={{flex: .07}}>
-
-        </View>
-
       </View>
     )
   }
@@ -217,10 +213,199 @@ const styles = StyleSheet.create({
 })
 
 const shoppinginfo = [
-  {Name: "Uniqlo SoHo", Address: "546 Broadway, New York, NY 10012", Description: "Clothing retailer producing a collection of casualwear & accessories for men, women & children.", Phone: "877-486-4756", Website: "www.uniqlo.com", Image: "http://i64.tinypic.com/et9zmh.jpg", Maps: "http://i67.tinypic.com/5bitk.jpg", Type: 'Clothing',  Latitude: "40.723445", Longitude: "-73.998073", Popular: "Heat Tech"},
-  {Name: "Pearl River Mart", Address: "17 Cleveland Place, New York, NY 10012", Description: "Eclectic emporium with 3-floors of Chinese apparel, accessories, housewares & furniture", Phone: "800-878-2446", Website: "www.pearlriver.com", Image: "http://i65.tinypic.com/dgqibs.jpg", Maps: "http://i67.tinypic.com/5bitk.jpg", Type: 'Suvenior',  Latitude: "40.721542", Longitude: "-74.000468", Popular: "Dragon Boat"},
-  {Name: "Topshop", Address: "478 Broadway, New York, NY 10012", Description: "Topshop is a British multinatioal fashion retailer of clothing, shoes, make-up and accessories - of which some 300 are in the UK", Phone: "866-853-8559", Website: "us.topshop.com", Image: "http://i67.tinypic.com/w2f380.jpg", Maps: "http://i67.tinypic.com/5bitk.jpg", Type: 'UK Design',  Latitude: "40.721398", Longitude: "-73.999888", Popular: "European Look"},
-  {Name: "Prada", Address: "575 Broadway, New York, NY 10012", Description: "Retailer of upscale apparel, handbags, fragrances & more from the Italian designer", Phone: "212-334-8888", Website: "www.prada.com", Image: "http://i64.tinypic.com/3339xyu.jpg", Maps: "http://i67.tinypic.com/5bitk.jpg", Type: 'Luxury Bag', Latitude: "40.724450", Longitude: "-73.997868", Popular: "Prada"},
-  {Name: "Bloomingdale's", Address: "504 Broadway, New York, NY 10012", Description: "Upscale department store for apparel, accessories & cosmetics.", Phone: "212-729-5900", Website: "locations.bloomingdale.com/soho", Image: "http://i67.tinypic.com/2jwit5.jpg", Maps: "http://i68.tinypic.com/2cik9vn.jpg", Type: 'Upscale Department Store', Latitude: "40.724450", Longitude: "-73.997868", Popular: "Apparel"}]
+
+  {
+    Name: "Uniqlo SoHo",
+    Address: "546 Broadway, New York, NY 10012",
+    Description: "Clothing retailer producing a collection of casualwear & accessories for men, women & children.",
+    Phone: "877-486-4756",
+    Website: "www.uniqlo.com",
+    Image: "http://i64.tinypic.com/et9zmh.jpg",
+    Image2: "http://i65.tinypic.com/b9dj5y.jpg",
+    Image3: "http://i66.tinypic.com/16h70jn.jpg",
+    Maps: "http://i67.tinypic.com/5bitk.jpg",
+    Type: 'Clothing',
+    Latitude: "40.723445",
+    Longitude: "-73.998073",
+    Popular: "Heat Tech"
+  },
+
+  {
+    Name: "Pearl River Mart",
+    Address: "17 Cleveland Place, New York, NY 10012",
+    Description: "Eclectic emporium with 3-floors of Chinese apparel, accessories, housewares & furniture",
+    Phone: "800-878-2446",
+    Website: "www.pearlriver.com",
+    Image: "http://i65.tinypic.com/dgqibs.jpg",
+    Image2: "http://i65.tinypic.com/vyqftd.jpg",
+    Image3: "http://i64.tinypic.com/2u6itn6.jpg",
+    Maps: "http://i67.tinypic.com/5bitk.jpg",
+    Type: 'Suvenior',
+    Latitude: "40.721542",
+    Longitude: "-74.000468",
+    Popular: "Dragon Boat"
+  },
+
+  {
+    Name: "Topshop",
+    Address: "478 Broadway, New York, NY 10012",
+    Description: "Topshop is a British multinatioal fashion retailer of clothing, shoes, make-up and accessories - of which some 300 are in the UK",
+    Phone: "866-853-8559",
+    Website: "us.topshop.com",
+    Image: "http://i67.tinypic.com/w2f380.jpg",
+    Image2: "http://i67.tinypic.com/2a8ktnn.jpg",
+    Image3: "http://i63.tinypic.com/29fr1n9.jpg",
+    Maps: "http://i67.tinypic.com/5bitk.jpg",
+    Type: 'UK Design',
+    Latitude: "40.721398",
+    Longitude: "-73.999888",
+    Popular: "European Look"
+  },
+
+  {
+    Name: "Prada",
+    Address: "575 Broadway, New York, NY 10012",
+    Description: "Retailer of upscale apparel, handbags, fragrances & more from the Italian designer",
+    Phone: "212-334-8888",
+    Website: "www.prada.com",
+    Image: "http://i64.tinypic.com/3339xyu.jpg",
+    Image2: "http://i64.tinypic.com/xgjtzk.jpg",
+    Image3: "http://i66.tinypic.com/ht8cnb.jpg",
+    Maps: "http://i67.tinypic.com/5bitk.jpg",
+    Type: 'Luxury Bag',
+    Latitude: "40.724450",
+    Longitude: "-73.997868",
+    Popular: "Prada"
+  },
+
+  {
+    Name: "Bloomingdale's",
+    Address: "504 Broadway, New York, NY 10012",
+    Description: "Upscale department store for apparel, accessories & cosmetics.", Phone: "212-729-5900",
+    Website: "locations.bloomingdale.com/soho",
+    Image: "http://i67.tinypic.com/2jwit5.jpg",
+    Image2: "http://i65.tinypic.com/syl2th.jpg",
+    Image3: "http://i66.tinypic.com/2cyrwyc.jpg",
+    Maps: "http://i68.tinypic.com/2cik9vn.jpg",
+    Type: 'Upscale Department Store',
+    Latitude: "40.724450",
+    Longitude: "-73.997868",
+    Popular: "Apparel"
+  },
+
+  {
+    Name: "Apple Store",
+    Address: "153 8th Avenue, New York, NY 10011",
+    Description: "Casual, eco-minded regional chain for organic burgers (from beef to bison) & more, plus beer & wine",
+    Phone: "2124142273",
+    Website: "www.bareburger.com",
+    Image: "http://i67.tinypic.com/2m4bm08.jpg",
+    Image2: "http://i63.tinypic.com/awarmq.jpg",
+    Image3: "http://i63.tinypic.com/2mqvyoi.jpg",
+    Maps: "http://i67.tinypic.com/292ppts.jpg",
+    Type: 'Burger',
+    Latitude: "40.728490",
+    Longitude: "-73.998625",
+    Popular: "Organic Burger"
+  },
+
+  {
+    Name: "Adidas Originals",
+    Address: "153 8th Avenue, New York, NY 10011",
+    Description: "Casual, eco-minded regional chain for organic burgers (from beef to bison) & more, plus beer & wine",
+    Phone: "2124142273",
+    Website: "www.bareburger.com",
+    Image: "http://i67.tinypic.com/2m4bm08.jpg",
+    Image2: "http://i63.tinypic.com/awarmq.jpg",
+    Image3: "http://i63.tinypic.com/2mqvyoi.jpg",
+    Maps: "http://i67.tinypic.com/292ppts.jpg",
+    Type: 'Burger',
+    Latitude: "40.728490",
+    Longitude: "-73.998625",
+    Popular: "Organic Burger"
+  },
+
+
+  {
+    Name: "Madewell SoHo",
+    Address: "153 8th Avenue, New York, NY 10011",
+    Description: "Casual, eco-minded regional chain for organic burgers (from beef to bison) & more, plus beer & wine",
+    Phone: "2124142273",
+    Website: "www.bareburger.com",
+    Image: "http://i67.tinypic.com/2m4bm08.jpg",
+    Image2: "http://i63.tinypic.com/awarmq.jpg",
+    Image3: "http://i63.tinypic.com/2mqvyoi.jpg",
+    Maps: "http://i67.tinypic.com/292ppts.jpg",
+    Type: 'Burger',
+    Latitude: "40.728490",
+    Longitude: "-73.998625",
+    Popular: "Organic Burger"
+  },
+
+  {
+    Name: "Cole Haan at SoHo",
+    Address: "153 8th Avenue, New York, NY 10011",
+    Description: "Casual, eco-minded regional chain for organic burgers (from beef to bison) & more, plus beer & wine",
+    Phone: "2124142273",
+    Website: "www.bareburger.com",
+    Image: "http://i67.tinypic.com/2m4bm08.jpg",
+    Image2: "http://i63.tinypic.com/awarmq.jpg",
+    Image3: "http://i63.tinypic.com/2mqvyoi.jpg",
+    Maps: "http://i67.tinypic.com/292ppts.jpg",
+    Type: 'Burger',
+    Latitude: "40.728490",
+    Longitude: "-73.998625",
+    Popular: "Organic Burger"
+  },
+
+  {
+    Name: "anthropologie",
+    Address: "153 8th Avenue, New York, NY 10011",
+    Description: "Casual, eco-minded regional chain for organic burgers (from beef to bison) & more, plus beer & wine",
+    Phone: "2124142273",
+    Website: "www.bareburger.com",
+    Image: "http://i67.tinypic.com/2m4bm08.jpg",
+    Image2: "http://i63.tinypic.com/awarmq.jpg",
+    Image3: "http://i63.tinypic.com/2mqvyoi.jpg",
+    Maps: "http://i67.tinypic.com/292ppts.jpg",
+    Type: 'Burger',
+    Latitude: "40.728490",
+    Longitude: "-73.998625",
+    Popular: "Organic Burger"
+  },
+
+  {
+    Name: "Club Monaco",
+    Address: "153 8th Avenue, New York, NY 10011",
+    Description: "Casual, eco-minded regional chain for organic burgers (from beef to bison) & more, plus beer & wine",
+    Phone: "2124142273",
+    Website: "www.bareburger.com",
+    Image: "http://i67.tinypic.com/2m4bm08.jpg",
+    Image2: "http://i63.tinypic.com/awarmq.jpg",
+    Image3: "http://i63.tinypic.com/2mqvyoi.jpg",
+    Maps: "http://i67.tinypic.com/292ppts.jpg",
+    Type: 'Burger',
+    Latitude: "40.728490",
+    Longitude: "-73.998625",
+    Popular: "Organic Burger"
+  },
+
+  {
+    Name: "J.Crew",
+    Address: "153 8th Avenue, New York, NY 10011",
+    Description: "Casual, eco-minded regional chain for organic burgers (from beef to bison) & more, plus beer & wine",
+    Phone: "2124142273",
+    Website: "www.bareburger.com",
+    Image: "http://i67.tinypic.com/2m4bm08.jpg",
+    Image2: "http://i63.tinypic.com/awarmq.jpg",
+    Image3: "http://i63.tinypic.com/2mqvyoi.jpg",
+    Maps: "http://i67.tinypic.com/292ppts.jpg",
+    Type: 'Burger',
+    Latitude: "40.728490",
+    Longitude: "-73.998625",
+    Popular: "Organic Burger"
+  },
+
+]
 
 module.exports = Shopping;

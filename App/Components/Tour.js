@@ -147,6 +147,8 @@ class Tour extends React.Component{
 
         <View style={{flex: .9}}>
         <MapView
+        showsUserLocation={true}
+        followUserLocation={true}
           style={styles.map}>
 
           {/* Restaurant Markers */}
@@ -302,7 +304,7 @@ const styles = StyleSheet.create({
     justifyContent: 'center'
   },
   map: {
-    height: 602,
+    height: 671,
     marginTop: -47,
     borderWidth: 1,
     borderColor: '#000000',
