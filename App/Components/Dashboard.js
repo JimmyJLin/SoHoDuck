@@ -180,7 +180,7 @@ var styles = StyleSheet.create({
   },
   backdrop: {
     paddingTop: 60,
-    width: 400,
+    width: 420,
     height: 200
   },
   backdropView: {

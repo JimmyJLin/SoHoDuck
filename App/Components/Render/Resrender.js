@@ -57,6 +57,7 @@ class Resrender extends React.Component{
       return (
         <View style={styles.mainContainer}>
 
+          {/* Image Component */}
           <View style={styles.imgContainer}>
             <Swiper style={styles.wrapper}
               dot={<View style={{backgroundColor:'rgba(255,255,255,.3)', width: 13, height: 13,borderRadius: 7, marginLeft: 7, marginRight: 7,}} />}
@@ -89,9 +90,10 @@ class Resrender extends React.Component{
             </Swiper>
           </View>
 
+          {/* Detail Component */}
           <View style={styles.detailContainer}>
-          <ScrollView>
 
+          <ScrollView>
             <View style={styles.listBox}>
               <Image style={styles.icon}
               source={require('../img/render/location.jpg')}/>
@@ -137,13 +139,12 @@ class Resrender extends React.Component{
             </View>
 
             <Separator />
-
           </ScrollView>
 
           </View>
 
+          {/* Map Component */}
           <View style={styles.mapContainer}>
-
             <MapView
             style={styles.map}
             showsUserLocation={true}
@@ -157,7 +158,6 @@ class Resrender extends React.Component{
               title={this.props.resinfo.Name}/>
             </MapView>
           </View>
-
 
         </View>
       )
@@ -210,8 +210,8 @@ const styles = StyleSheet.create({
     backgroundColor: 'transparent',
   },
   image: {
-    width: 400,
-    height: 200,
+    width: 430,
+    height: 250,
     alignSelf: 'stretch',
     justifyContent: 'center',
   },
@@ -225,10 +225,10 @@ const styles = StyleSheet.create({
     padding: 10,
     flexDirection: 'row',
   },
-  detailContainer: {
-    flex: .3
-  },
   imgContainer: {
+    flex: .35
+  },
+  detailContainer: {
     flex: .3
   },
   mapContainer: {

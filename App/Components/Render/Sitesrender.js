@@ -4,6 +4,10 @@ const Dimensions = require('Dimensions');
 const windowSize = Dimensions.get('window');
 const PriceMarkers = require('../ReactMaps/PriceMarkers')
 const CustomCallout = require('../ReactMaps/CustomCallout')
+const Swiper = require('react-native-swiper')
+const Communications = require('react-native-communications')
+const Separator = require('../Helpers/Separator')
+
 
 const {
   Text,
@@ -14,7 +18,8 @@ const {
   TextInput,
   ListView,
   StyleSheet,
-  TouchableHighlight
+  TouchableHighlight,
+  TouchableOpacity
 } = React;
 
 class Sitesrender extends React.Component{
@@ -51,12 +56,95 @@ class Sitesrender extends React.Component{
     const objArr = Object.keys(this.props)
       return (
         <View style={styles.mainContainer}>
-          <View style={{flex: .6}}>
 
-            <Text style={styles.title}>
-            {this.props.siteinfo.Name}
-            </Text>
+          {/* Image Component */}
+          <View style={styles.imgContainer}>
+            <Swiper style={styles.wrapper}
+              dot={<View style={{backgroundColor:'rgba(255,255,255,.3)', width: 13, height: 13,borderRadius: 7, marginLeft: 7, marginRight: 7,}} />}
+              activeDot={<View style={{backgroundColor: '#fff', width: 13, height: 13, borderRadius: 7, marginLeft: 7, marginRight: 7}} />}
+              paginationStyle={{
+                bottom: 500,
+              }}
+              loop={false}>
+              <View style={styles.slide}>
+                <Image style={styles.image} source={{uri: this.props.siteinfo.Image}} >
+                <Text style={styles.imageText}>
+                {this.props.siteinfo.Name}
+                </Text>
+                </Image>
+              </View>
+              <View style={styles.slide}>
+                <Image style={styles.image} source={{uri: this.props.siteinfo.Image2}} >
+                <Text style={styles.imageText}>
+                {this.props.siteinfo.Name}
+                </Text>
+                </Image>
+              </View>
+              <View style={styles.slide}>
+                <Image style={styles.image} source={{uri: this.props.siteinfo.Image3}} >
+                <Text style={styles.imageText}>
+                {this.props.siteinfo.Name}
+                </Text>
+                </Image>
+              </View>
+            </Swiper>
+          </View>
 
+          {/* Detail Component */}
+          <View style={styles.detailContainer}>
+
+          <ScrollView>
+            <View style={styles.listBox}>
+              <Image style={styles.icon}
+              source={require('../img/render/location.jpg')}/>
+              <Text style={styles.text}> {this.props.siteinfo.Address}</Text>
+            </View>
+
+            <Separator />
+
+            <View style={styles.listBox}>
+            <TouchableOpacity onPress={() => Communications.phonecall(this.props.siteinfo.Phone, true)}>
+              <View style={styles.holder}>
+                <Image style={styles.icon}
+                source={require('../img/render/call.jpg')}/>
+                <Text style={styles.text}>Call  {this.props.siteinfo.Phone}</Text>
+              </View>
+            </TouchableOpacity>
+            </View>
+
+            <Separator />
+
+            <View style={styles.listBox}>
+            <TouchableOpacity onPress={() => Communications.web(this.props.siteinfo.Website)}>
+              <View style={styles.holder}>
+                <Image style={styles.icon}
+                source={require('../img/render/web.jpg')}/>
+                <Text style={styles.text}> {this.props.siteinfo.Website}</Text>
+              </View>
+            </TouchableOpacity>
+            </View>
+
+            <Separator />
+
+            <View>
+            <View style={styles.listBox}>
+              <Image style={styles.icon}
+              source={require('../img/render/detail.jpg')}/>
+              <Text style={styles.text}>Description: </Text>
+            </View>
+            <View  style={styles.bigListBox}>
+              <Text  style={styles.descText}>
+              {this.props.siteinfo.Description}</Text>
+            </View>
+            </View>
+
+            <Separator />
+          </ScrollView>
+
+          </View>
+
+          {/* Map Component */}
+          <View style={styles.mapContainer}>
             <MapView
             style={styles.map}
             showsUserLocation={true}
@@ -69,16 +157,6 @@ class Sitesrender extends React.Component{
               zoom={13}
               title={this.props.siteinfo.Name}/>
             </MapView>
-
-        </View>
-        <View style={{flex: .4}}>
-          <Text style={styles.text}>Address: {this.props.siteinfo.Address}</Text>
-          <Text style={styles.text}>Description: {this.props.siteinfo.Description}</Text>
-          <Text style={styles.text}>Phone: {this.props.siteinfo.Phone}</Text>
-          <Text style={styles.text}>Website: {this.props.siteinfo.Website}</Text>
-        </View>
-          <View style={{flex: .2}}>
-            <Text style={styles.title}> Hello World! </Text>
           </View>
         </View>
       )
@@ -92,7 +170,7 @@ const styles = StyleSheet.create({
     marginTop: 64,
     flexDirection: 'column',
     justifyContent: 'center',
-    backgroundColor: '#48BBEC'
+    backgroundColor: '#F2F2F2'
   },
   title: {
     marginBottom: 10,
@@ -101,31 +179,20 @@ const styles = StyleSheet.create({
     color: '#fff'
   },
   text: {
-    marginTop: 10,
     marginBottom: 5,
     fontSize: 15,
     textAlign: 'center',
-    color: '#fff'
+    color: '#000'
   },
-  buttonText: {
-    fontSize: 18,
-    color: '#111',
-    alignSelf: 'center'
-  },
-  button: {
-    height: 45,
-    flexDirection: 'row',
-    backgroundColor: 'white',
-    borderColor: 'white',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    marginTop: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
+  descText: {
+    marginBottom: 5,
+    marginLeft: 30,
+    fontSize: 15,
+    textAlign: 'left',
+    color: '#000'
   },
   map: {
-    height: 300,
+    height: 226,
     borderWidth: 1,
     borderColor: '#000000',
     position: 'absolute',
@@ -134,12 +201,58 @@ const styles = StyleSheet.create({
     right: 0,
     bottom: 0,
   },
-  detailsImage: {
-    marginTop: 0,
-    width: 400,
-    height: 200,
-    backgroundColor: '#eaeaea',
+  wrapper: {
+    // backgroundColor: '#f00',
+  },
+  slide: {
+    flex: 1,
+    backgroundColor: 'transparent',
+  },
+  image: {
+    width: 430,
+    height: 250,
+    alignSelf: 'stretch',
+    justifyContent: 'center',
+  },
+  imageText: {
+    marginBottom: 10,
+    fontSize: 25,
+    textAlign: 'center',
+    color: '#fff'
+  },
+  ListContainer: {
+    padding: 10,
+    flexDirection: 'row',
+  },
+  imgContainer: {
+    flex: .35
+  },
+  detailContainer: {
+    flex: .3
+  },
+  mapContainer: {
+    flex: .3
+  },
+  listBox: {
+    height: 40,
+    padding: 10,
+    flexDirection: 'row',
+    backgroundColor: '#ffffff',
+  },
+  icon: {
     marginRight: 10,
+    width: 20,
+    height: 20
+  },
+  holder: {
+    flexDirection: 'row',
+  },
+  bigListBox: {
+    marginTop: -10,
+    height: 90,
+    padding: 10,
+    justifyContent: 'flex-start',
+    backgroundColor: '#ffffff',
   },
 })
 
