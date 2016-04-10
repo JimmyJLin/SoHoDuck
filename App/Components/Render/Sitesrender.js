@@ -105,7 +105,7 @@ class Sitesrender extends React.Component{
             <Separator />
 
             <View style={styles.listBox}>
-            <TouchableOpacity onPress={() => Communications.phonecall(this.props.siteinfo.Phone, true)}>
+            <TouchableOpacity onPress={() => Communications.phonecall(this.props.siteinfo.Phone.replace(/-/g,""), true)}>
               <View style={styles.holder}>
                 <Image style={styles.icon}
                 source={require('../img/render/call.jpg')}/>

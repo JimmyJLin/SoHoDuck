@@ -94,7 +94,7 @@ class Resrender extends React.Component{
           <View style={styles.detailContainer}>
 
           <ScrollView>
-          
+
             <TouchableOpacity onPress={() => Communications.web("https://www.google.com/maps/place/" + this.props.resinfo.Address)}>
               <View style={styles.listBox}>
                 <Image style={styles.icon}
@@ -107,7 +107,7 @@ class Resrender extends React.Component{
             <Separator />
 
             <View style={styles.listBox}>
-            <TouchableOpacity onPress={() => Communications.phonecall(this.props.resinfo.Phone, true)}>
+            <TouchableOpacity onPress={() => Communications.phonecall(this.props.resinfo.Phone.replace(/-/g,""), true)}>
               <View style={styles.holder}>
                 <Image style={styles.icon}
                 source={require('../img/render/call.jpg')}/>

@@ -107,7 +107,7 @@ class Shoppingrender extends React.Component{
             <Separator />
 
             <View style={styles.listBox}>
-            <TouchableOpacity onPress={() => Communications.phonecall(this.props.shoppinginfo.Phone, true)}>
+            <TouchableOpacity onPress={() => Communications.phonecall(this.props.shoppinginfo.Phone.replace(/-/g,""), true)}>
               <View style={styles.holder}>
                 <Image style={styles.icon}
                 source={require('../img/render/call.jpg')}/>

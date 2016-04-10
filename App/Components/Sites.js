@@ -215,7 +215,7 @@ const siteinfo = [
     Address: "260-264 Mulbuerry Street, New York, NY 10012",
     Description: "The Basilica of Saint Patrick's Old Cathedral buildt between 1809 and 1815, it was the seat of the Roman Catholic Archdiocese of New York until the current Saint Patrick's Cathedral",
     Phone: "212-226-8075",
-    Website: "http://www.oldcathedral.org.com",
+    Website: "http://www.oldcathedral.org",
     Image: "http://i68.tinypic.com/v3pv7q.jpg",
     Image2: "http://i66.tinypic.com/1zv3jp4.jpg",
     Image3: "http://i67.tinypic.com/2i6pbfa.jpg",
@@ -245,7 +245,8 @@ const siteinfo = [
   {
     Name: "New Museum",
     Address: "235 Bowery Stret, New York, NY 10012",
-    Description: "The New Meseum is a leading destination for new art and new ideas", Phone: "212-219-1222",
+    Description: "The New Meseum is a leading destination for new art and new ideas",
+    Phone: "212-219-1222",
     Website: "http://www.newmuseum.org",
     Image: "http://i63.tinypic.com/4sfolv.jpg",
     Image2: "http://i67.tinypic.com/2v1sy3d.jpg",
@@ -290,10 +291,10 @@ const siteinfo = [
   },
 
   {
-    Name: "Leslie-Lohman Museum of Gay & Lesbian Art",
+    Name: "Leslie-Lohman Museum of LGBT Art",
     Address: "26 Wooster Street, New York, NY 10013",
     Description: "The Leslie-Lohman Museum of Gay and Lesbian Art is a visual art museum in SoHo, preserves art and speaks directly to LGBTQ experience",
-    Phone: "2124312609",
+    Phone: "212-431-2609",
     Website: "http://www.leslielohman.org",
     Image: "http://i67.tinypic.com/iqbora.jpg",
     Image2: "http://i65.tinypic.com/5frgn7.jpg",

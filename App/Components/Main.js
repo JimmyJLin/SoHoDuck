@@ -104,6 +104,7 @@ class Main extends React.Component{
           <TextInput style={[styles.input, styles.whiteFont]}
           placeholder="Email"
           placeholderTextColor="#FFF"
+          autoFocus={true}
           value={this.state.email}
           onChange={this.handleEmail.bind(this)}/>
         </Animatable.View>
@@ -116,14 +117,14 @@ class Main extends React.Component{
           secureTextEntry={true}
           placeholder="Password"
           placeholderTextColor="#FFF"
+          autoFocus={true}
           value={this.state.password}
           onChange={this.handlePassword.bind(this)}/>
         </Animatable.View>
-
+        </View>
           {/* forgot password */}
           <View style={styles.forgotContainer}>
           </View>
-        </View>
 
         {/* Sign In*/}
         <Animatable.View animation="bounceInLeft" style={styles.signin}>
@@ -136,7 +137,7 @@ class Main extends React.Component{
         <Animatable.View animation="bounceInRight" style={styles.signin}>
           <Text style={styles.buttonText}
           onPress={this.goToDashboard.bind(this)}
-          underlayColor="#E39EBF">Start Quacking</Text>
+          underlayColor="#E39EBF">Demo</Text>
         </Animatable.View>
 
         {/*Sign up*/}

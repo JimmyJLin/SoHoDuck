@@ -43,17 +43,20 @@ class Dashboard extends React.Component{
     })
   }
 
+  // api.getRes()
+  //   .then((res)=>{
+  //     this.props.navigator.push({
+  //       component: Res,
+  //       passProps: {resInfo: res}
+  //     })
+  //     this.setState({
+  //       isLoading: false,
+  //       error: false,
+  //     })
+  //   })
   goToRes(){
-    api.getRes()
-      .then((res)=>{
-        this.props.navigator.push({
-          component: Res,
-          passProps: {resInfo: res}
-        })
-        this.setState({
-          isLoading: false,
-          error: false,
-        })
+      this.props.navigator.push({
+        component: Res,
       })
   }
 
