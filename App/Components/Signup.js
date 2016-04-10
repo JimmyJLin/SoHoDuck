@@ -9,6 +9,7 @@ const Animatable = require('react-native-animatable');
 
 const {
   AppRegistry,
+  Alert,
   View,
   Text,
   StyleSheet,
@@ -52,8 +53,9 @@ class Signup extends React.Component{
     }, (error, userData) => {
       if(error) {
         console.log('Error creating user: ', error);
+        Alert.alert("Unable to sign up, please check Email or Pasword!")
       } else {
-        console.log("Signup Success")
+        Alert.alert("Thank you for signing up for SoHoDuck!")
         this.props.navigator.resetTo({
           component: Dashboard,
           title: 'Dashboard'
@@ -114,7 +116,6 @@ class Signup extends React.Component{
 
         {/* Emptied Space */}
         <View style={styles.forgotContainer}>
-          <Text style={styles.greyFont}></Text>
         </View>
       </View>
     )

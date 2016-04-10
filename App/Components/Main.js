@@ -8,6 +8,7 @@ const Animatable = require('react-native-animatable');
 
 const {
   AppRegistry,
+  Alert,
   View,
   Text,
   StyleSheet,
@@ -63,6 +64,7 @@ class Main extends React.Component{
     }, (error, authData) =>{
       if (error) {
         console.log('Login Failed!', error)
+        Alert.alert("Incorrect Email or Password!")
       } else {
         this.props.navigator.resetTo({
           component: Dashboard,
@@ -119,7 +121,6 @@ class Main extends React.Component{
 
           {/* forgot password */}
           <View style={styles.forgotContainer}>
-            <Text style={styles.greyFont}>Forgot Password</Text>
           </View>
         </View>
 
