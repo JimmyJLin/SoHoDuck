@@ -61,6 +61,54 @@ class Tour extends React.Component{
           longitude: -73.995766,
           }
         },
+        {
+        coordinate: {
+          latitude: 40.728490,
+          longitude: -73.998625,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.724613,
+          longitude: -73.998772,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.721812,
+          longitude: -73.997923,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.721386,
+          longitude: -73.999458,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.728490,
+          longitude: -73.998625,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.724413,
+          longitude: -74.002492,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.725789,
+          longitude: -74.001156,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.723775,
+          longitude: -73.999611,
+          }
+        },
 
         // Sites Data Starts
         {
@@ -87,6 +135,18 @@ class Tour extends React.Component{
           longitude: -73.999485,
           }
         },
+        {
+        coordinate: {
+          latitude: 40.725789,
+          longitude: -74.000918,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.721702,
+          longitude: -74.003047,
+          }
+        },
 
         // Shopping Data Starts
         {
@@ -111,6 +171,54 @@ class Tour extends React.Component{
         coordinate: {
           latitude: 40.724450,
           longitude: -73.997868,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.722157,
+          longitude: -73.999203,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.728490,
+          longitude: -73.998625,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.725577,
+          longitude: -73.999643,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.721517,
+          longitude: -73.999699,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.725270,
+          longitude: -73.000491,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.723522,
+          longitude: -74.002534,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.725373,
+          longitude: -73.999653,
+          }
+        },
+        {
+        coordinate: {
+          latitude: 40.724909,
+          longitude: -73.998708,
           }
         },
       ],
@@ -176,43 +284,101 @@ class Tour extends React.Component{
           hasCenterMarker={true}
           zoom={13}
           title="Rice to Riches"/>
-
+          <MapView.Marker
+          ref="res"
+          coordinate={this.state.markers[4].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Bareburger"/>
+          <MapView.Marker
+          ref="res"
+          coordinate={this.state.markers[5].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Fanelli Cafe"/>
+          <MapView.Marker
+          ref="res"
+          coordinate={this.state.markers[6].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Cafe Select"/>
+          <MapView.Marker
+          ref="res"
+          coordinate={this.state.markers[7].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Harney & Sons SoHo"/>
+          <MapView.Marker
+          ref="res"
+          coordinate={this.state.markers[8].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Dominique Ansel Bakery"/>
+          <MapView.Marker
+          ref="res"
+          coordinate={this.state.markers[9].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Laduree"/>
+          <MapView.Marker
+          ref="res"
+          coordinate={this.state.markers[10].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Chobani"/>
+          <MapView.Marker
+          ref="res"
+          coordinate={this.state.markers[11].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Georgetown Cupcake"/>
 
           {/* Sites Markers */}
           <MapView.Marker
           ref="site"
-          coordinate={this.state.markers[4].coordinate}
+          coordinate={this.state.markers[12].coordinate}
           hasCenterMarker={true}
           zoom={13}
           MarkerPinColor={styles.pincolor}
           title="St. Patrick's Old Cathedral"/>
           <MapView.Marker
           ref="site"
-          coordinate={this.state.markers[5].coordinate}
+          coordinate={this.state.markers[13].coordinate}
           hasCenterMarker={true}
           zoom={13}
           MarkerPinColor={styles.pincolor}
           title="Rock & Roll Hall of Fame Annex"/>
           <MapView.Marker
           ref="site"
-          coordinate={this.state.markers[6].coordinate}
+          coordinate={this.state.markers[14].coordinate}
           hasCenterMarker={true}
           zoom={13}
           MarkerPinColor={styles.pincolor}
           title="New Museum"/>
           <MapView.Marker
           ref="site"
-          coordinate={this.state.markers[7].coordinate}
+          coordinate={this.state.markers[15].coordinate}
           hasCenterMarker={true}
           zoom={13}
           MarkerPinColor={styles.pincolor}
           title="E.V. Haughwout Building"/>
-
+          <MapView.Marker
+          ref="res"
+          coordinate={this.state.markers[16].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="West Broadway Gallaries"/>
+          <MapView.Marker
+          ref="res"
+          coordinate={this.state.markers[17].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Leslie-Lohman Museum"/>
 
           {/* Shopping Markers */}
           <MapView.Marker
           ref="shop"
-          coordinate={this.state.markers[8].coordinate}
+          coordinate={this.state.markers[18].coordinate}
           hasCenterMarker={true}
           zoom={13}
            title="Uniqlo SoHo">
@@ -224,22 +390,70 @@ class Tour extends React.Component{
           </MapView.Marker>
           <MapView.Marker
           ref="shop"
-          coordinate={this.state.markers[9].coordinate}
+          coordinate={this.state.markers[19].coordinate}
           hasCenterMarker={true}
           zoom={13}
           title="Pearl River Mart"/>
           <MapView.Marker
           ref="shop"
-          coordinate={this.state.markers[10].coordinate}
+          coordinate={this.state.markers[20].coordinate}
           hasCenterMarker={true}
           zoom={13}
           title="Topshop"/>
           <MapView.Marker
           ref="shop"
-          coordinate={this.state.markers[11].coordinate}
+          coordinate={this.state.markers[21].coordinate}
           hasCenterMarker={true}
           zoom={13}
           title="Prada"/>
+          <MapView.Marker
+          ref="shop"
+          coordinate={this.state.markers[22].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Bloomingdale"/>
+          <MapView.Marker
+          ref="shop"
+          coordinate={this.state.markers[23].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Apple Store"/>
+          <MapView.Marker
+          ref="shop"
+          coordinate={this.state.markers[24].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Adidas Originals"/>
+          <MapView.Marker
+          ref="shop"
+          coordinate={this.state.markers[25].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Madewell SoHo"/>
+          <MapView.Marker
+          ref="shop"
+          coordinate={this.state.markers[26].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Cole Haan at SoHo"/>
+          <MapView.Marker
+          ref="shop"
+          coordinate={this.state.markers[27].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Anthropologie"/>
+          <MapView.Marker
+          ref="shop"
+          coordinate={this.state.markers[28].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="Club Monaco"/>
+          <MapView.Marker
+          ref="shop"
+          coordinate={this.state.markers[29].coordinate}
+          hasCenterMarker={true}
+          zoom={13}
+          title="J.Crew"/>
 
         </MapView>
 

@@ -8,6 +8,7 @@ const Animatable = require('react-native-animatable');
 
 const {
   AppRegistry,
+  Alert,
   View,
   Text,
   StyleSheet,
@@ -63,6 +64,7 @@ class Main extends React.Component{
     }, (error, authData) =>{
       if (error) {
         console.log('Login Failed!', error)
+        Alert.alert("Incorrect Email or Password!")
       } else {
         this.props.navigator.resetTo({
           component: Dashboard,
@@ -81,16 +83,17 @@ class Main extends React.Component{
 
       {/* Background Image */}
         <Image style={styles.bg}
-        source={require('./img/Main/Background.jpg')}/>
+        source={require('./img/Main/sohofront.jpg')}/>
 
         {/* Header Check Mark */}
         <Animatable.View animation="bounceInDown" easing="ease-in" style={styles.header}>
-            <Image style={styles.mark}
-            source={require('./img/Main/Logo.png')}/>
+          <Animatable.Text style={styles.title} animation="slideInDown" iterationCount={50} direction="alternate"> Welcome to SoHoDuck! </Animatable.Text>
+            {/*<Image style={styles.mark}
+            source={require('./img/Main/Logo.png')}/>*/}
         </Animatable.View>
 
         <View style={styles.welcomeContainer}>
-          <Animatable.Text style={styles.title} animation="slideInDown" iterationCount={50} direction="alternate"> Welcome to SoHoDuck! </Animatable.Text>
+          {/*<Animatable.Text style={styles.title} animation="slideInDown" iterationCount={50} direction="alternate"> Welcome to SoHoDuck! </Animatable.Text>*/}
         </View>
 
         {/* username section */}
@@ -101,6 +104,7 @@ class Main extends React.Component{
           <TextInput style={[styles.input, styles.whiteFont]}
           placeholder="Email"
           placeholderTextColor="#FFF"
+          autoFocus={true}
           value={this.state.email}
           onChange={this.handleEmail.bind(this)}/>
         </Animatable.View>
@@ -113,15 +117,14 @@ class Main extends React.Component{
           secureTextEntry={true}
           placeholder="Password"
           placeholderTextColor="#FFF"
+          autoFocus={true}
           value={this.state.password}
           onChange={this.handlePassword.bind(this)}/>
         </Animatable.View>
-
+        </View>
           {/* forgot password */}
           <View style={styles.forgotContainer}>
-            <Text style={styles.greyFont}>Forgot Password</Text>
           </View>
-        </View>
 
         {/* Sign In*/}
         <Animatable.View animation="bounceInLeft" style={styles.signin}>
@@ -134,7 +137,7 @@ class Main extends React.Component{
         <Animatable.View animation="bounceInRight" style={styles.signin}>
           <Text style={styles.buttonText}
           onPress={this.goToDashboard.bind(this)}
-          underlayColor="#E39EBF">Start Quacking</Text>
+          underlayColor="#E39EBF">Demo</Text>
         </Animatable.View>
 
         {/*Sign up*/}
@@ -181,7 +184,7 @@ const styles = StyleSheet.create({
         height: 150
     },
     signin: {
-      backgroundColor: '#FF3366',
+      backgroundColor: '#E80C7A',
       padding: 20,
       marginBottom: 10,
       alignItems: 'center',
@@ -235,9 +238,16 @@ const styles = StyleSheet.create({
     },
     title: {
       marginBottom: 10,
-      fontSize: 25,
+      fontSize: 35,
+      fontWeight: 'bold',
+      textShadowColor: 'white',
+      textShadowRadius: 60,
+      textShadowOffset: {
+        width: 10,
+        height: 10,
+      },
       textAlign: 'center',
-      color: '#fff'
+      color: '#372152'
     },
     buttonText: {
       fontSize: 20,

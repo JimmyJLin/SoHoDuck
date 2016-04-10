@@ -94,16 +94,18 @@ class Sitesrender extends React.Component{
           <View style={styles.detailContainer}>
 
           <ScrollView>
-            <View style={styles.listBox}>
-              <Image style={styles.icon}
-              source={require('../img/render/location.jpg')}/>
-              <Text style={styles.text}> {this.props.siteinfo.Address}</Text>
-            </View>
+            <TouchableOpacity onPress={() => Communications.web("https://www.google.com/maps/place/" + this.props.siteinfo.Address)}>
+              <View style={styles.listBox}>
+                <Image style={styles.icon}
+                source={require('../img/render/location.jpg')}/>
+                <Text style={styles.text}> {this.props.siteinfo.Address}</Text>
+              </View>
+            </TouchableOpacity>
 
             <Separator />
 
             <View style={styles.listBox}>
-            <TouchableOpacity onPress={() => Communications.phonecall(this.props.siteinfo.Phone, true)}>
+            <TouchableOpacity onPress={() => Communications.phonecall(this.props.siteinfo.Phone.replace(/-/g,""), true)}>
               <View style={styles.holder}>
                 <Image style={styles.icon}
                 source={require('../img/render/call.jpg')}/>
