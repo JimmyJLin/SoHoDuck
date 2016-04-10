@@ -87,13 +87,13 @@ class Main extends React.Component{
 
         {/* Header Check Mark */}
         <Animatable.View animation="bounceInDown" easing="ease-in" style={styles.header}>
-          <Animatable.Text style={styles.title} animation="slideInDown" iterationCount={50} direction="alternate"> Welcome to SoHoDuck! </Animatable.Text>
+          {/*<Animatable.Text style={styles.title} animation="slideInDown" iterationCount={50} direction="alternate"> Welcome to SoHoDuck! </Animatable.Text>*/}
             {/*<Image style={styles.mark}
             source={require('./img/Main/Logo.png')}/>*/}
         </Animatable.View>
 
         <View style={styles.welcomeContainer}>
-          {/*<Animatable.Text style={styles.title} animation="slideInDown" iterationCount={50} direction="alternate"> Welcome to SoHoDuck! </Animatable.Text>*/}
+          <Animatable.Text style={styles.title} animation="slideInDown" iterationCount={10} direction="alternate"> Welcome to SoHoDuck! </Animatable.Text>
         </View>
 
         {/* username section */}
@@ -234,17 +234,18 @@ const styles = StyleSheet.create({
       color: '#D8D8D8'
     },
     whiteFont: {
-      color: '#FFF'
+      color: '#FFF',
+      fontSize: 17,
     },
     title: {
       marginBottom: 10,
-      fontSize: 35,
+      fontSize: 40,
       fontWeight: 'bold',
       textShadowColor: 'white',
       textShadowRadius: 60,
       textShadowOffset: {
-        width: 10,
-        height: 10,
+        width: 20,
+        height: 20,
       },
       textAlign: 'center',
       color: '#372152'

@@ -197,7 +197,8 @@ const styles = StyleSheet.create({
     color: '#D8D8D8'
   },
   whiteFont: {
-    color: '#FFF'
+    color: '#FFF',
+    fontSize: 17,
   },
   title: {
     marginBottom: 10,
