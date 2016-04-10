@@ -83,16 +83,17 @@ class Main extends React.Component{
 
       {/* Background Image */}
         <Image style={styles.bg}
-        source={require('./img/Main/Background.jpg')}/>
+        source={require('./img/Main/sohofront.jpg')}/>
 
         {/* Header Check Mark */}
         <Animatable.View animation="bounceInDown" easing="ease-in" style={styles.header}>
-            <Image style={styles.mark}
-            source={require('./img/Main/Logo.png')}/>
+          <Animatable.Text style={styles.title} animation="slideInDown" iterationCount={50} direction="alternate"> Welcome to SoHoDuck! </Animatable.Text>
+            {/*<Image style={styles.mark}
+            source={require('./img/Main/Logo.png')}/>*/}
         </Animatable.View>
 
         <View style={styles.welcomeContainer}>
-          <Animatable.Text style={styles.title} animation="slideInDown" iterationCount={50} direction="alternate"> Welcome to SoHoDuck! </Animatable.Text>
+          {/*<Animatable.Text style={styles.title} animation="slideInDown" iterationCount={50} direction="alternate"> Welcome to SoHoDuck! </Animatable.Text>*/}
         </View>
 
         {/* username section */}
@@ -182,7 +183,7 @@ const styles = StyleSheet.create({
         height: 150
     },
     signin: {
-      backgroundColor: '#FF3366',
+      backgroundColor: '#E80C7A',
       padding: 20,
       marginBottom: 10,
       alignItems: 'center',
@@ -236,9 +237,16 @@ const styles = StyleSheet.create({
     },
     title: {
       marginBottom: 10,
-      fontSize: 25,
+      fontSize: 35,
+      fontWeight: 'bold',
+      textShadowColor: 'white',
+      textShadowRadius: 60,
+      textShadowOffset: {
+        width: 10,
+        height: 10,
+      },
       textAlign: 'center',
-      color: '#fff'
+      color: '#372152'
     },
     buttonText: {
       fontSize: 20,

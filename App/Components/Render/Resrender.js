@@ -94,11 +94,15 @@ class Resrender extends React.Component{
           <View style={styles.detailContainer}>
 
           <ScrollView>
-            <View style={styles.listBox}>
-              <Image style={styles.icon}
-              source={require('../img/render/location.jpg')}/>
-              <Text style={styles.text}> {this.props.resinfo.Address}</Text>
-            </View>
+          
+            <TouchableOpacity onPress={() => Communications.web("https://www.google.com/maps/place/" + this.props.resinfo.Address)}>
+              <View style={styles.listBox}>
+                <Image style={styles.icon}
+                source={require('../img/render/location.jpg')}/>
+                <Text style={styles.text}> {this.props.resinfo.Address}</Text>
+                </View>
+            </TouchableOpacity>
+
 
             <Separator />
 
