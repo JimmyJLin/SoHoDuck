@@ -1,5 +1,9 @@
 const React = require('react-native');
-// const Web_View = require('./Helpers/WebView')
+const MapView = require('react-native-maps')
+const Dimensions = require('Dimensions');
+const windowSize = Dimensions.get('window');
+const PriceMarkers = require('./ReactMaps/PriceMarkers')
+const CustomCallout = require('./ReactMaps/CustomCallout')
 
 const {
   Text,
@@ -7,17 +11,19 @@ const {
   NavigatorIOS,
   Image,
   ScrollView,
-  MapView,
   TextInput,
   ListView,
   StyleSheet,
   TouchableHighlight
 } = React;
 
+// const LATITUDE = this.props.resinfo.Latitude
+// const LONGITUDE = this.props.resinfo.Longitude
 
 class Render extends React.Component{
   constructor(props){
     super(props);
+
     this.state = {
       isFirstLoad: true,
       mapRegion: undefined,
@@ -29,9 +35,14 @@ class Render extends React.Component{
         latitude: 0,
         longitude: 0,
       },
-      dataSource: new ListView.DataSource({
-        rowHasChanged: (row1, row2) => row1 !== row2,
-      }),
+      markers: [
+        {
+        coordinate: {
+          latitude: this.props.resinfo.Latitude,
+          longitude: this.props.resinfo.Longitude,
+          }
+        },
+      ],
     }
   }
 
@@ -40,23 +51,36 @@ class Render extends React.Component{
   }
 
   render(){
-    const objArr = Object.keys(this.props)
 
+    const objArr = Object.keys(this.props)
+    console.log("line 55", this.state.markers[0].coordinate)
     if (objArr[2] == 'resinfo'){
       return (
         <View style={styles.mainContainer}>
-          <View style={{flex: .8}}>
+          <View style={{flex: .6}}>
+
             <Text style={styles.title}>
             {this.props.resinfo.Name}
             </Text>
-            <Image
-            source={{uri: this.props.resinfo.Image}}
-            style={styles.detailsImage}/>
-            <Text style={styles.text}>Address: {this.props.resinfo.Address}</Text>
-            <Text style={styles.text}>Description: {this.props.resinfo.Description}</Text>
-            <Text style={styles.text}>Phone: {this.props.resinfo.Phone}</Text>
-            <Text style={styles.text}>Website: {this.props.resinfo.Website}</Text>
-          </View>
+
+            <MapView
+            style={styles.map}
+            hasCenterMarker={true}>
+              <MapView.Marker
+              ref="m1"
+              coordinate={this.state.markers[0].coordinate}
+              hasCenterMarker={true}
+              zoom={13}
+              title={this.props.resinfo.Name}/>
+            </MapView>
+
+        </View>
+        <View style={{flex: .4}}>
+          <Text style={styles.text}>Address: {this.props.resinfo.Address}</Text>
+          <Text style={styles.text}>Description: {this.props.resinfo.Description}</Text>
+          <Text style={styles.text}>Phone: {this.props.resinfo.Phone}</Text>
+          <Text style={styles.text}>Website: {this.props.resinfo.Website}</Text>
+        </View>
           <View style={{flex: .2}}>
             <Text style={styles.title}> Hello World! </Text>
           </View>
@@ -65,17 +89,30 @@ class Render extends React.Component{
     } else if (objArr[2] == 'siteinfo') {
       return (
         <View style={styles.mainContainer}>
-          <View style={{flex: .8}}>
+          <View style={{flex: .4}}>
+
             <Text style={styles.title}>
             {this.props.siteinfo.Name}
             </Text>
-            <Image
-            source={{uri: this.props.siteinfo.Image}}
-            style={styles.detailsImage}/>
-            <Text style={styles.text}>Address: {this.props.siteinfo.Address}</Text>
-            <Text style={styles.text}>Description: {this.props.siteinfo.Description}</Text>
-            <Text style={styles.text}>Phone: {this.props.siteinfo.Phone}</Text>
-            <Text style={styles.text}>Website: {this.props.siteinfo.Website}</Text>
+
+            <MapView
+            style={styles.map}
+            hasCenterMarker={true}>
+              <MapView.Marker
+              ref="m1"
+              coordinate={this.state.markers[1].coordinate}
+              hasCenterMarker={true}
+              zoom={13}
+              title={this.props.siteinfo.Name}/>
+            </MapView>
+
+            <View style={{flex: .4}}>
+              <Text style={styles.text}>Address: {this.props.siteinfo.Address}</Text>
+              <Text style={styles.text}>Description: {this.props.siteinfo.Description}</Text>
+              <Text style={styles.text}>Phone: {this.props.siteinfo.Phone}</Text>
+              <Text style={styles.text}>Website: {this.props.siteinfo.Website}</Text>
+            </View>
+
           </View>
           <View style={{flex: .2}}>
             <Text style={styles.title}> Hello World! </Text>
@@ -85,17 +122,30 @@ class Render extends React.Component{
     } else {
       return (
         <View style={styles.mainContainer}>
-          <View style={{flex: .8}}>
+          <View style={{flex: .4}}>
+
             <Text style={styles.title}>
             {this.props.shoppinginfo.Name}
             </Text>
-            <Image
-            source={{uri: this.props.shoppinginfo.Image}}
-            style={styles.detailsImage}/>
-            <Text style={styles.text}>Address: {this.props.shoppinginfo.Address}</Text>
-            <Text style={styles.text}>Description: {this.props.shoppinginfo.Description}</Text>
-            <Text style={styles.text}>Phone: {this.props.shoppinginfo.Phone}</Text>
-            <Text style={styles.text}>Website: {this.props.shoppinginfo.Website}</Text>
+
+            <MapView
+            style={styles.map}
+            hasCenterMarker={true}>
+              <MapView.Marker
+              ref="m1"
+              coordinate={this.state.markers[2].coordinate}
+              hasCenterMarker={true}
+              zoom={13}
+              title={this.props.shoppinginfo.Name}/>
+            </MapView>
+
+            <View style={{flex: .4}}>
+              <Text style={styles.text}>Address: {this.props.shoppinginfo.Address}</Text>
+              <Text style={styles.text}>Description: {this.props.shoppinginfo.Description}</Text>
+              <Text style={styles.text}>Phone: {this.props.shoppinginfo.Phone}</Text>
+              <Text style={styles.text}>Website: {this.props.shoppinginfo.Website}</Text>
+            </View>
+
           </View>
           <View style={{flex: .2}}>
             <Text style={styles.title}> Hello World! </Text>

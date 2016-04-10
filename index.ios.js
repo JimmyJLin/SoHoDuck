@@ -7,18 +7,23 @@ const {
   StyleSheet,
   Text,
   NavigatorIOS,
+  Navigator,
   View
 } = React;
+
+
 
 class SohoDuck extends Component {
   render() {
     return (
+      
       <NavigatorIOS
       style={styles.container}
       initialRoute={{
         title: 'SoHo Duck',
         component: Main,
       }} />
+
     );
   }
 }

@@ -8,6 +8,7 @@ const Animatable = require('react-native-animatable');
 
 const {
   AppRegistry,
+  Alert,
   View,
   Text,
   StyleSheet,
@@ -35,14 +36,12 @@ class Main extends React.Component{
   goToDashboard(){
     this.props.navigator.push({
       component: Dashboard,
-      title: 'Dashboard'
     })
   }
 
   goToSignup(){
     this.props.navigator.push({
       component: Signup,
-      title: 'Signup'
     })
   }
 
@@ -65,10 +64,10 @@ class Main extends React.Component{
     }, (error, authData) =>{
       if (error) {
         console.log('Login Failed!', error)
+        Alert.alert("Incorrect Email or Password!")
       } else {
         this.props.navigator.resetTo({
           component: Dashboard,
-          title: 'Dashboard'
           })
         }
       }
@@ -84,16 +83,17 @@ class Main extends React.Component{
 
       {/* Background Image */}
         <Image style={styles.bg}
-        source={require('./img/Main/Background.jpg')}/>
+        source={require('./img/Main/sohofront.jpg')}/>
 
         {/* Header Check Mark */}
         <Animatable.View animation="bounceInDown" easing="ease-in" style={styles.header}>
-            <Image style={styles.mark}
-            source={require('./img/Main/Logo.jpg')}/>
+          {/*<Animatable.Text style={styles.title} animation="slideInDown" iterationCount={50} direction="alternate"> Welcome to SoHoDuck! </Animatable.Text>*/}
+            {/*<Image style={styles.mark}
+            source={require('./img/Main/Logo.png')}/>*/}
         </Animatable.View>
 
         <View style={styles.welcomeContainer}>
-          <Animatable.Text style={styles.title} animation="slideInDown" iterationCount={50} direction="alternate"> Welcome to SoHoDuck! </Animatable.Text>
+          <Animatable.Text style={styles.title} animation="slideInDown" iterationCount={10} direction="alternate"> Welcome to SoHoDuck! </Animatable.Text>
         </View>
 
         {/* username section */}
@@ -104,6 +104,7 @@ class Main extends React.Component{
           <TextInput style={[styles.input, styles.whiteFont]}
           placeholder="Email"
           placeholderTextColor="#FFF"
+          autoFocus={true}
           value={this.state.email}
           onChange={this.handleEmail.bind(this)}/>
         </Animatable.View>
@@ -116,15 +117,14 @@ class Main extends React.Component{
           secureTextEntry={true}
           placeholder="Password"
           placeholderTextColor="#FFF"
+          autoFocus={true}
           value={this.state.password}
           onChange={this.handlePassword.bind(this)}/>
         </Animatable.View>
-
+        </View>
           {/* forgot password */}
           <View style={styles.forgotContainer}>
-            <Text style={styles.greyFont}>Forgot Password</Text>
           </View>
-        </View>
 
         {/* Sign In*/}
         <Animatable.View animation="bounceInLeft" style={styles.signin}>
@@ -137,7 +137,7 @@ class Main extends React.Component{
         <Animatable.View animation="bounceInRight" style={styles.signin}>
           <Text style={styles.buttonText}
           onPress={this.goToDashboard.bind(this)}
-          underlayColor="#E39EBF">Start Quacking</Text>
+          underlayColor="#E39EBF">Demo</Text>
         </Animatable.View>
 
         {/*Sign up*/}
@@ -160,30 +160,37 @@ const styles = StyleSheet.create({
       backgroundColor: 'transparent'
     },
     bg: {
-        position: 'absolute',
-        left: 0,
-        top: 0,
-        width: windowSize.width,
-        height: windowSize.height
+      position: 'absolute',
+      left: 0,
+      top: 0,
+      width: windowSize.width,
+      height: windowSize.height
+    },
+    backgroundVideo: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      bottom: 0,
+      right: 0,
     },
     header: {
-        justifyContent: 'center',
-        alignItems: 'center',
-        flex: .5,
-        backgroundColor: 'transparent'
+      justifyContent: 'center',
+      alignItems: 'center',
+      flex: .5,
+      backgroundColor: 'transparent'
     },
     mark: {
         width: 150,
         height: 150
     },
     signin: {
-        backgroundColor: '#FF3366',
-        padding: 20,
-        marginBottom: 10,
-        alignItems: 'center',
-        flexDirection: 'row',
-        alignSelf: 'stretch',
-        justifyContent: 'center',
+      backgroundColor: '#E80C7A',
+      padding: 20,
+      marginBottom: 10,
+      alignItems: 'center',
+      flexDirection: 'row',
+      alignSelf: 'stretch',
+      justifyContent: 'center',
     },
     signup: {
       justifyContent: 'center',
@@ -191,14 +198,14 @@ const styles = StyleSheet.create({
       flex: .15
     },
     inputs: {
-        marginTop: 10,
-        marginBottom: 10,
-        flex: .25
+      marginTop: 10,
+      marginBottom: 10,
+      flex: .25
     },
     inputPassword: {
-        marginLeft: 15,
-        width: 20,
-        height: 21
+      marginLeft: 15,
+      width: 20,
+      height: 21
     },
     inputUsername: {
       marginLeft: 15,
@@ -206,18 +213,18 @@ const styles = StyleSheet.create({
       height: 20
     },
     inputContainer: {
-        padding: 10,
-        borderWidth: 1,
-        borderBottomColor: '#CCC',
-        borderColor: 'transparent'
+      padding: 10,
+      borderWidth: 1,
+      borderBottomColor: '#CCC',
+      borderColor: 'transparent'
     },
     input: {
-        position: 'absolute',
-        left: 61,
-        top: 12,
-        right: 0,
-        height: 20,
-        fontSize: 14
+      position: 'absolute',
+      left: 61,
+      top: 12,
+      right: 0,
+      height: 20,
+      fontSize: 14
     },
     forgotContainer: {
       alignItems: 'flex-end',
@@ -227,13 +234,21 @@ const styles = StyleSheet.create({
       color: '#D8D8D8'
     },
     whiteFont: {
-      color: '#FFF'
+      color: '#FFF',
+      fontSize: 17,
     },
     title: {
       marginBottom: 10,
-      fontSize: 25,
+      fontSize: 40,
+      fontWeight: 'bold',
+      textShadowColor: 'white',
+      textShadowRadius: 60,
+      textShadowOffset: {
+        width: 20,
+        height: 20,
+      },
       textAlign: 'center',
-      color: '#fff'
+      color: '#372152'
     },
     buttonText: {
       fontSize: 20,

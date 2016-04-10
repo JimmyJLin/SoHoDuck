@@ -3,140 +3,103 @@ const Res = require('./Res')
 const Shopping = require('./Shopping')
 const Sites = require('./Sites')
 const Tour = require('./Tour')
+const Tabs = require('react-native-tabs')
 
 var {
+  AppRegistry,
+  StyleSheet,
+  NavigatorIOS,
+  Navigator,
   Text,
   View,
-  MapView,
-  NavigatorIOS,
-  Image,
-  ScrollView,
-  StyleSheet,
-  PropTypes,
-  TabBarIOS,
-  Component,
-  TouchableOpacity,
-  TouchableHighlight
 } = React;
 
-var styles = StyleSheet.create({
-  description: {
-    fontSize: 20,
-    textAlign: 'center',
-    color: '#FF530D'
-  },
-  container: {
-    flex: .2,
-    justifyContent: 'center',
-    alignItems: 'center',
-    backgroundColor: '#FFFCF7'
-  },
-  title: {
-    marginBottom: 20,
-    fontSize: 25,
-    textAlign: 'center',
-    color: '#fff'
-  },
-  searchInput: {
-    height: 50,
-    padding: 4,
-    marginRight: 5,
-    fontSize: 23,
-    borderWidth: 1,
-    borderColor: 'white',
-    borderRadius: 8,
-    color: 'white'
-  },
-  buttonText: {
-    fontSize: 18,
-    color: '#111',
-    alignSelf: 'center'
-  },
-  button: {
-    height: 45,
-    flexDirection: 'row',
-    backgroundColor: 'white',
-    borderColor: 'white',
-    borderWidth: 1,
-    borderRadius: 8,
-    marginBottom: 10,
-    marginTop: 10,
-    alignSelf: 'stretch',
-    justifyContent: 'center'
-  },
-});
 
 class Footer extends React.Component {
-
-  goToTour(){
-    this.props.navigator.push({
-      component: Tour,
-      title: 'Walking Tour'
-    })
-  }
-
-  goToRes(){
-    this.props.navigator.push({
-      component: Res,
-      title: 'Resturant & Bar'
-    })
-  }
-
-  goToSites(){
-    this.props.navigator.push({
-      component: Sites,
-      title: 'Additional POIs'
-    })
-  }
-
-  goToShopping(){
-    this.props.navigator.push({
-      component: Shopping,
-      title: 'Shopping'
-    })
-  }
   constructor(props) {
     super(props)
     this.state={
-      selectedTab: 'welcome'
+      page: 'second'
     }
   }
+
+  getCurrentRoutes(){
+    var currentRoute = this.props.navigator.navigationContext._currentRoute;
+    return currentRoute;
+  }
+
+  goToTour(){
+    // this.props.navigator.push({
+    //   component: Tour,
+    // })
+  }
+
+  goToRes(){
+    // this.props.navigator.push({
+    //   component: Res,
+    // })
+  }
+
+  goToSites(){
+    // this.props.navigator.push({
+    //   component: Sites,
+    // })
+  }
+
+  goToShopping(){
+    // this.props.navigator.push({
+    //   component: Shopping,
+    // })
+  }
+
   render(){
+
     return (
-    <View style={styles.container}>
-      <Text style={styles.title}>Hello</Text>
+      <View style={styles.container}>
+       <Tabs selected={this.state.page} style={{backgroundColor:'white'}}
+             selectedStyle={{color:'red'}} onSelect={el=>this.setState({page:el.props.name})}>
 
-      <TabBarIOS
-      selectedTab={this.state.selectedTab}>
-        <TabBarIOS.Item
-          selected={this.state.seelctedTab === 'welcome'}
-          icon={{uri: 'featured'}}
-          onPress={this.goToTour}>
-        </TabBarIOS.Item>
+           <Text name="first"
+           onPress={this.goToTour.bind(this)}
+           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Tour</Text>
 
-        <TabBarIOS.Item
-          selected={this.state.seelctedTab === 'welcome'}
-          icon={{uri: 'featured'}}
-          onPress={this.goToRes}>
-        </TabBarIOS.Item>
+           <Text name="second"
+           onPress={this.goToRes.bind(this)}
+           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Restaurant</Text>
 
-        <TabBarIOS.Item
-          selected={this.state.seelctedTab === 'welcome'}
-          icon={{uri: 'featured'}}
-          onPress={this.goToSites}>
-        </TabBarIOS.Item>
+           <Text name="third"
+           onPress={this.goToSites.bind(this)}
+           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>POIs</Text>
 
-        <TabBarIOS.Item
-          selected={this.state.seelctedTab === 'welcome'}
-          icon={{uri: 'featured'}}
-          onPress={this.goToShopping}>
-        </TabBarIOS.Item>
+           <Text name="fourth"
+           onPress={this.goToShopping.bind(this)}
+           selectedIconStyle={{borderTopWidth:2,borderTopColor:'blue'}}>Shopping</Text>
 
-      </TabBarIOS>
-    </View>
+       </Tabs>
+     </View>
     )
   }
 }
+
+
+var styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: '#F5FCFF',
+  },
+  welcome: {
+    fontSize: 20,
+    textAlign: 'center',
+    margin: 10,
+  },
+  instructions: {
+    textAlign: 'center',
+    color: '#333333',
+    marginBottom: 5,
+  },
+});
 
 
 module.exports = Footer;
